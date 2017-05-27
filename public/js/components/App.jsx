@@ -1,5 +1,7 @@
 import React from '../../node_modules/react';
 
+import JobsList from './JobsList.jsx';
+
 class App extends React.Component {
     constructor() {
         super();
@@ -8,7 +10,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello World</h1>
+                <JobsList/>
             </div>
         )
     }
