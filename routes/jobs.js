@@ -41,6 +41,24 @@ router.post("/", function (req, res) {
     });
 });
 
+//NEW - show form to create new job
+router.get("/new", function (req, res) {
+   res.render("jobs/new");
+});
+
+//SHOW - shows more info about one job
+router.get("/:id", function (req, res) {
+   //find the job with the provided id
+    Job.findById(req.params.id).exec(function (err, foundJob) {
+       if(err) {
+           console.log(err);
+       } else {
+           console.log(foundJob);
+           res.send({job: foundJob});
+       }
+    });
+});
+
 //EDIT JOB ROUTE
 router.get("/", function (req, res) {
    //find the job by ID
@@ -52,6 +70,31 @@ router.get("/", function (req, res) {
            res.send({job: foundJob});
        }
     });
+});
+
+//UPDATE JOB ROUTE
+router.put("/:id", function (req, res) {
+   //find and update the correct job
+    Job.findByIdAndUpdate(req.params.id, function(err, updatedJob){
+       if(err) {
+           console.log(err);
+           res.redirect("/");
+       } else {
+           //redirect somewhere - project page
+           res.redirect("/");
+       }
+    });
+});
+
+//DESTROY JOB ROUTE
+router.delete("/:id", function (req, res) {
+   Job.findByIdAndRemove(req.params.id, function (err) {
+      if(err) {
+          res.redirect("/");
+      } else {
+          res.redirect("/");
+      }
+   });
 });
 
 module.exports = router;
