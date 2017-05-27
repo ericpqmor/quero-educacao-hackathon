@@ -1,0 +1,27 @@
+{
+  "name": "quero-educacao-hackathon",
+  "version": "1.0.0",
+  "description": "App for CodeInQuero Hackathon 2017",
+  "main": "app.js",
+  "dependencies": {
+    "flash": "^1.1.0",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericpqmor/quero-educacao-hackathon.git"
+  },
+  "author": "ericpqmor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericpqmor/quero-educacao-hackathon/issues"
+  },
+  "homepage": "https://github.com/ericpqmor/quero-educacao-hackathon#readme"
+}
