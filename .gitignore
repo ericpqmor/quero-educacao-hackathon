@@ -12,4 +12,7 @@ npm-debug.log*
 
 # Jetbrains
 .idea
-./idea/workspace.xml
+.idea/workspace.xml
+
+# Sass cache
+public/.sass-cache/
