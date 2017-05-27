@@ -7,28 +7,31 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const methodOverride = require("method-override");
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 const exphbs  = require('express-handlebars');
 const winston = require('winston');
 const routes = require('./routes');
 const seedDB = require("./seeds");
-
 const Job = require("./models/job");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
       indexRoutes = require("./routes/index");
 
-var url = process.env.DATABASEURL || "mongodb://localhost/";
-mongoose.connect(url);
-
-//Set view engine
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/");
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + "/public"));
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
 app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
+
+//seed the db
 seedDB();
 
 //BodyParser Middleware
