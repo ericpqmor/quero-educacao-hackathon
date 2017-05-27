@@ -21,3 +21,5 @@ var jobSchema = new mongoose.Schema({
         username: String
     }*/
 });
+
+module.exports = mongoose.model("Job", jobSchema);
