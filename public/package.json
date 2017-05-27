@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run vendor && npm run watch",
-    "watch": "watchify -u react -u react-dom -o build/js/bundle.js -v -d js/index.js",
+    "watch": "concurrently --kill-others 'watchify -u react -u react-dom -o build/js/bundle.js -v -d js/index.js' 'sass --watch scss/main.scss:build/css/main.css'",
     "vendor": "browserify -r react -r react-dom > build/js/vendor.js",
     "build": "npm run build:vendor && npm run build:app",
     "build:app": "browserify -u react -u react-dom js/index.js | uglifyjs -c warnings=false,drop_console -m > build/js/bundle.js",
@@ -30,12 +30,13 @@
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babelify": "^7.2.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
-    "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "uglify-js": "^2.6.1",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "concurrently": "^3.1.0"
   },
   "browserify": {
     "transform": [
