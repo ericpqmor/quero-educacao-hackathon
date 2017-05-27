@@ -12,3 +12,7 @@ npm-debug.log*
 
 # Jetbrains
 .idea
+
+#Code Conventions
+job -> tarefas
+notifications -> notificações
