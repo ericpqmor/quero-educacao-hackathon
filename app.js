@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
 const winston = require('winston');
 const routes = require('./routes');
+const seedDB = require("./seeds");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
@@ -19,6 +20,7 @@ const jobRoutes = require("./routes/jobs"),
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
 app.set('view engine', 'handlebars');
+seedDB();
 
 //BodyParser Middleware
 app.use(bodyParser.json());
