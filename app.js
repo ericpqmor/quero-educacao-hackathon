@@ -8,6 +8,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
+const winston = require('winston');
+
+const routes = require('./routes');
 
 //Set view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -19,12 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/dashboard',express.static('./public'));
+app.use('/dashboard', express.static('./public'));
 
 //Loading all the routes
-// app.use(require('./routes'));
-
-
+app.use(routes);
 
 app.listen(3000, function (req, res) {
     console.log("We are going to win this hackathon");
