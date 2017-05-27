@@ -11,19 +11,16 @@ const Job = require("../models/job");
 
 //INDEX - Show all jobs
 router.get("/", function (req, res) {
-    console.log('oi');
    //Get all jobs from DB
-    res.send(Job);
-    // Job.find({}, function(err, allJobs) {
-    //     if(err) {
-    //         console.log("ief");
-    //         req.flash("error", err.message);
-    //     } else {
-    //         console.log("chegou aqui");
-    //
-    //         res.send({jobs:allJobs});
-    //     }
-    // });
+    Job.find({}, function(err, allJobs) {
+        if(err) {
+            console.log("ief");
+            req.flash("error", err.message);
+        } else {
+            console.log(allJobs);
+            res.json({jobs:allJobs});
+        }
+    });
 });
 //
 // //CREATE - Add new job to database
