@@ -3,7 +3,7 @@
  */
 
 const express = require("express");
-const router = express.router();
+const router = express.Router();
 const Job = require("../models/job");
 //Going to require database
 
@@ -14,7 +14,7 @@ router.get("/", function (req, res) {
         if(err) {
             req.flash("error", err.message);
         } else {
-            res.send("jobs", {jobs:allJobs});
+            res.send({jobs:allJobs});
         }
     });
 });
@@ -53,3 +53,5 @@ router.get("/", function (req, res) {
        }
     });
 });
+
+module.exports = router;
