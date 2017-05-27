@@ -22,4 +22,16 @@ var jobSchema = new mongoose.Schema({
     }*/
 });
 
-module.exports = mongoose.model("Job", jobSchema);
+const modulo =
+    [
+        {
+            name: 'oi',
+            description: 'oefn'
+        },
+        {
+            name: 'oi2',
+            description: 'oefn2'
+        }
+    ];
+
+module.exports = modulo;

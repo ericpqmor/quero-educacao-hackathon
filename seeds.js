@@ -41,8 +41,9 @@ function seedDB() {
               } else {
                 console.log("added a job");
               }
-           }
+           })
         });
     });
 }
 
+module.exports = seedDB;

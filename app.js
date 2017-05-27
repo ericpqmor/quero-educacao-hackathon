@@ -20,7 +20,7 @@ const jobRoutes = require("./routes/jobs"),
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}));
 app.set('view engine', 'handlebars');
-seedDB();
+// seedDB();
 
 //BodyParser Middleware
 app.use(bodyParser.json());

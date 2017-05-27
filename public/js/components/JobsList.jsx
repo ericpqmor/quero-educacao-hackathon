@@ -12,9 +12,9 @@ class JobsList extends React.Component {
         for(let i in jobs) {
             if(jobs.hasOwnProperty(i)) {
                 data.push(
-                    <tr key = {jobs[i].estado}>
-                        <td>{jobs[i].estado}</td>
-                        <td>{jobs[i].value}</td>
+                    <tr key = {jobs[i].name}>
+                        <td>{jobs[i].name}</td>
+                        <td>{jobs[i].description}</td>
                     </tr>
                 );
             }
@@ -29,8 +29,8 @@ class JobsList extends React.Component {
             <table className="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>Estado</th>
-                    <th>População</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
                 </tr>
                 </thead>
                 <tbody>
