@@ -28,7 +28,7 @@ const jobRoutes = require("./routes/jobs"),
       assignedRoutes = require("./routes/assigned"),
       userRoutes = require("./routes/users");
 
-mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/");
+mongoose.connect("mongodb://ericpqmor:81160709@ds155811.mlab.com:55811/sharet");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set('views', path.join(__dirname, 'views'));
