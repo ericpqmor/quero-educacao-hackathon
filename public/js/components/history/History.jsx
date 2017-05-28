@@ -1,7 +1,5 @@
 import React from '../../../node_modules/react/react';
 
-import DeleteJob from './DeleteHistory.jsx';
-
 class History extends React.Component {
     constructor(props) {
         super(props);
