@@ -3,8 +3,21 @@
 }
 
 .force-to-bottom {
-  position:absolute;
+  bottom: 0%;
+}
 
-  bottom: 5%;
-  width: 80%;
+.btn.tarefasActive{
+  background-color: #00bcd4;
+}
+
+.btn.tarefasInactive{
+  background-color: brown;
+}
+
+.btn.historicoActive{
+  background-color: antiquewhite;
+}
+
+.btn.historicoInactive{
+  background-color: brown;
 }

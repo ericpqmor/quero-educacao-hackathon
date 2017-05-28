@@ -3,7 +3,7 @@ import React from '../../node_modules/react';
 import JobsList from './jobs/JobsList.jsx';
 import Header from './Header.jsx';
 
-class Footer extends React.Component {
+class Body extends React.Component {
     constructor() {
         super();
         this.handleClick = this.handleClick.bind(this);
@@ -22,9 +22,8 @@ class Footer extends React.Component {
     render() {
         if (this.state.tarefasActive === true){
             return (
-                <div className="container force-to-bottom">
-                     <button type="button" className="btn col-md-offset-2 col-md-4 col-xs-6 footerbutton tarefasActive" onClick={this.handleClick}>Tarefas</button>
-                     <button type="button" className="btn col-md-4 col-xs-6 footerbutton historicoInactive">Historico</button>
+                <div className="container bodyStyleBasic">
+
                 </div>
             )
         }
@@ -39,4 +38,4 @@ class Footer extends React.Component {
     }
 }
 
-export default Footer;
+export default Body;
