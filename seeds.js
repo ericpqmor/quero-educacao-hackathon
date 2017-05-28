@@ -4,6 +4,7 @@
 const mongoose = require("mongoose");
 const Job = require("./models/job");
 const User = require("./models/user");
+const History = require("./models/history");
 
 const users = [
     {
@@ -67,6 +68,13 @@ function seedDB() {
               }
            })
         });
+    });
+
+    //Clean the history database
+    History.remove({}, function (err) {
+        if (err) {
+            console.log(err);
+        }
     });
 
     User.remove({}, function (err) {
