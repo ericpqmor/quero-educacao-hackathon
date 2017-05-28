@@ -9,7 +9,7 @@ class HistoryList extends React.Component {
 
     transformHistorysIntoHTML(historys) {
         let data = [];
-        console.log(historys);
+
         if(historys !== undefined) {
             const v = historys.jobs;
             for (let i in v) {
@@ -27,6 +27,7 @@ class HistoryList extends React.Component {
 
     render() {
         const tableData = this.transformHistorysIntoHTML(this.props.history);
+
         return (
             <div>
                 <table className="table table-striped table-bordered table-hover taskTable">

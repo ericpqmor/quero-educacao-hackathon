@@ -5,7 +5,7 @@
 const express = require("express");
 const router = express.Router();
 const Job = require("../models/job");
-const History = require("../models/history");
+const History = require("../models/job");
 const middleware = require("../middleware");
 //Going to require database
 
@@ -25,12 +25,14 @@ router.get("/", function (req, res) {
 // Show all the history
 router.get("/history", function (req, res) {
     console.log('Get on history');
+    // res.send({});
     //Get all jobs from history DB
     History.find({}, function (err, allJobs) {
         if(err) {
             console.log(err);
         } else {
-            console.log(res);
+            console.log("aaaaaaaaaaaaaaaaaaaaaa");
+            console.log(allJobs);
             res.json({jobs:allJobs});
         }
     });

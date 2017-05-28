@@ -8,7 +8,6 @@ class HistoryManager extends React.Component {
 
         this.state = {
             history: {},
-            forms: false,
             properties: {
                 name: '',
                 description: '',
@@ -38,7 +37,8 @@ class HistoryManager extends React.Component {
                 me.setState({
                     history: data
                 });
-
+                console.log('Teve da request, data = ');
+                console.log(data);
                 return data;
             },
             error: function (err) {
