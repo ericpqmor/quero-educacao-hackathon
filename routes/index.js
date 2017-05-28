@@ -17,10 +17,9 @@ router.get("/register", function(req, res){
 
 //handle sign up logic
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({username: req.body.username, email: req.body.email});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
-            console.log(err);
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
@@ -41,7 +40,5 @@ router.get("/logout", function(req, res){
    //req.flash("sucess", "Logged you out!");
    res.redirect("/");
 });
-
-module.exports = router;
 
 module.exports = router;
