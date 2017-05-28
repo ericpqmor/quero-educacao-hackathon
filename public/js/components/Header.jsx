@@ -22,9 +22,6 @@ class Header extends React.Component {
                                 <div className="HeaderText">
                                     {this.props.projectName}
                                 </div>
-                                <div className="HeaderText">
-                                    <span className="glyphicon glyphicon-triangle-bottom" ></span>
-                                </div>
                             </div>
                         </div>
                         <div className="col-lg-1 col-xs-3">
