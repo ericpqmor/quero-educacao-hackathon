@@ -126,12 +126,9 @@ router.delete("/:id", function (req, res) {
                             console.log("Done");
                         }
                     });
-                    //  res.send(newlyArchived);
+                        res.send(newlyArchived);
                 }
             });
-            res.send({job: foundJob});
-
-
         }
     });
 
