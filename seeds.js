@@ -31,15 +31,13 @@ function seedDB() {
         if (err) {
             console.log(err);
         }
-        console.log("removed jobs.");
-
         //add a few jobs
         data.forEach(function (seed) {
            Job.create(seed, function (err, job) {
               if(err) {
                 console.log(err);
               } else {
-                console.log("added a job");
+
               }
            })
         });
