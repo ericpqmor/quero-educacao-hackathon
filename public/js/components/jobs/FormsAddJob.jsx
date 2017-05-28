@@ -8,7 +8,8 @@ class FormsAddJob extends React.Component {
             description: this.props.properties.description,
             image: this.props.properties.image,
             category: this.props.properties.category,
-            money: this.props.properties.money
+            money: this.props.properties.money,
+            assigned: []
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,7 +26,8 @@ class FormsAddJob extends React.Component {
             description: nextProps.properties.description,
             image: nextProps.properties.image,
             category: nextProps.properties.category,
-            money: nextProps.properties.money
+            money: nextProps.properties.money,
+            assigned: nextProps.properties.assigned
         });
     }
 
@@ -72,7 +74,7 @@ class FormsAddJob extends React.Component {
     requestNewJob() {
         const jobsUrl = '/jobs/';
         const me = this;
-        console.log(this.state);
+
         $.ajax({
             url: jobsUrl,
             dataType: 'json',
@@ -84,7 +86,8 @@ class FormsAddJob extends React.Component {
                     description: '',
                     image: '',
                     money: 0,
-                    category: 'pontual'
+                    category: 'pontual',
+                    assigned: []
                 });
                 me.props.closeForms();
                 me.props.onJobUpdate();
@@ -108,6 +111,34 @@ class FormsAddJob extends React.Component {
     }
 
     getPeople() {
+        const jobsUrl = '/users/';
+        const me = this;
+        $.ajax({
+            url: jobsUrl,
+            dataType: 'json',
+            type: 'get',
+            success: function (data) {
+                let finalData = [];
+                for(let i in data) {
+                    if(data.hasOwnProperty(i)) {
+                        finalData.push(
+                            <option value={data[i].username} key={data[i].username + Math.random().toString()}>
+                                {data[i].username}
+                            </option>
+                        );
+                    }
+                }
+                me.setState({
+                    people: finalData
+                });
+                me.props.closeForms();
+                me.props.onJobUpdate();
+            },
+            error: function (err) {
+                console.log(err);
+                console.log("Couldn't load users")
+            }
+        });
 
     }
 
@@ -115,8 +146,9 @@ class FormsAddJob extends React.Component {
         const style = {
             visibility: this.props.formsVisible ? 'visible' : 'hidden'
         };
+        console.log(this.state);
         return (
-            <form className="bodyStyleBack" conSubmit={this.handleSubmit} style={style}>
+            <form className="bodyStyleBack" onSubmit={this.handleSubmit} style={style}>
                 <label>
                     Nome: &nbsp;
                     <input
@@ -165,9 +197,8 @@ class FormsAddJob extends React.Component {
                 <br />
                 <label>
                     Número de Pessoas: &nbsp;
-                    <select value={this.state.category} onChange={this.handleOptionChange}>
-                        <option value="pontual">Pontual</option>
-                        <option value="cyclic">Cíclica</option>
+                    <select value={this.state.assigned} onChange={this.handleOptionChange}>
+                        {this.state.people}
                     </select>
                 </label>
                 <br />
