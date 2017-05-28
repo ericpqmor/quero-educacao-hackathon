@@ -19,8 +19,6 @@ class HistoryManager extends React.Component {
         };
 
         this.updateHistory = this.updateHistory.bind(this);
-        this.openForms = this.openForms.bind(this);
-        this.closeForms = this.closeForms.bind(this);
     }
 
     componentDidMount() {
@@ -56,15 +54,7 @@ class HistoryManager extends React.Component {
         });
     }
 
-    openForms(properties) {
-        this.setState({forms: true, properties: properties});
-    }
-    closeForms() {
-        this.setState({forms: false});
-    }
-
     render() {
-        console.log('here');
         return (
             <div>
                 <HistoryList history={this.state.history}

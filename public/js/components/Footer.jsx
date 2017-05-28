@@ -63,7 +63,7 @@ class Footer extends React.Component {
                         <div className="col-lg-3 col-xs-0 ">
                         </div>
                         <div className="col-lg-3 col-xs-6" id="footerLeft"
-                             onClick={()=>this.props.changeMainPage('job')}>
+                             onClick={()=>this.props.changeMainPage('job',this.props.projectName)}>
                             <div className="footerLeft">
                                  <div className="FooterText">
                                     Tarefas
@@ -71,7 +71,7 @@ class Footer extends React.Component {
                             </div>
                         </div>
                         <div className="col-lg-3 col-xs-6" id="footerRight"
-                             onClick={()=>this.props.changeMainPage('history')}>
+                             onClick={()=>this.props.changeMainPage('history',this.props.projectName)}>
                             <div className="footerRight">
                                 <div className="FooterText">
                                     Histórico

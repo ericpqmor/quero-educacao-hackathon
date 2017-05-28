@@ -38,7 +38,7 @@ class App extends React.Component {
                 <div>
                     <Header changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
                     <JobManager/>
-                    <Footer changeMainPage={this.changeMainPage}/>
+                    <Footer changeMainPage={this.changeMainPage}  projectName={this.state.projectName}/>
                 </div>
             )
         } else {
@@ -46,7 +46,7 @@ class App extends React.Component {
                 <div>
                     <Header changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
                     <HistoryManager/>
-                    <Footer changeMainPage={this.changeMainPage}/>
+                    <Footer changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
                 </div>
             )
         }
