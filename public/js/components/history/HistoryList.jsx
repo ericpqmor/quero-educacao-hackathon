@@ -27,8 +27,7 @@ class HistoryList extends React.Component {
 
     render() {
         const tableData = this.transformHistorysIntoHTML(this.props.history);
-        console.log('Renderizando o HistoryList com table data = ');
-        console.log(tableData);
+
         return (
             <div>
                 <table className="table table-striped table-bordered table-hover taskTable">

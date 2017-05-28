@@ -55,8 +55,6 @@ class HistoryManager extends React.Component {
     }
 
     render() {
-        console.log('Renderizando o historyManager com this.state:');
-        console.log(this.state);
         return (
             <div>
                 <HistoryList history={this.state.history}
