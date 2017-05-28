@@ -5,7 +5,7 @@
 const express = require("express");
 const router = express.Router();
 const Job = require("../models/job");
-const middleware = require("../middleware");
+//const middleware = require("../middleware");
 //Going to require database
 
 
@@ -23,13 +23,11 @@ router.get("/", function (req, res) {
 });
 
 //CREATE - Add new job to database
-router.post("/", middleware.isLoggedIn, function (req, res) {
+router.post("/", function (req, res) {
    //get data from forms and add to jobs array
     const name = req.body.name;
     const image = req.body.image;
     const description = req.body.description;
-
-    //FIXME think better about how to get enum from form
     const category = req.body.category;
 
     const newJob = {name: name, image: image, description: description, category: category};
@@ -46,7 +44,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
 });
 
 //NEW - show form to create new job
-router.get("/new", middleware.isLoggedIn, function (req, res) {
+router.get("/new", function (req, res) {
    res.render("jobs/new");
 });
 
