@@ -9,9 +9,7 @@ var jobSchema = new mongoose.Schema({
     image: String,
     description: String,
     category: {
-        type: String,
-        enum : ['PONTUAL', 'CYCLIC'],
-        default: 'PONTUAL'
+        type: String
     }/*,
     author: {
         id: {

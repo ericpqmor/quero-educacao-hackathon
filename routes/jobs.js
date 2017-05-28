@@ -14,10 +14,8 @@ router.get("/", function (req, res) {
    //Get all jobs from DB
     Job.find({}, function(err, allJobs) {
         if(err) {
-            console.log("ief");
             req.flash("error", err.message);
         } else {
-            console.log(allJobs);
             res.json({jobs:allJobs});
         }
     });
@@ -57,7 +55,6 @@ router.get("/:id", function (req, res) {
        if(err) {
            console.log(err);
        } else {
-           console.log(foundJob);
            res.json({job: foundJob});
        }
     });
