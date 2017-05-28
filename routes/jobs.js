@@ -74,14 +74,18 @@ router.get("/", function (req, res) {
 
 //UPDATE JOB ROUTE
 router.put("/:id", function (req, res) {
+    console.log('herioeogr');
    //find and update the correct job
     Job.findByIdAndUpdate(req.params.id, function(err, updatedJob){
        if(err) {
+           console.log('deu erro');
            console.log(err);
-           res.redirect("/");
+           res.json({});
        } else {
            //redirect somewhere - project page
-           res.redirect("/");
+           console.log(req);
+           console.log(updatedJob);
+           res.json(updatedJob);
        }
     });
 });

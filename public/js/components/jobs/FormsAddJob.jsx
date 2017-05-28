@@ -13,6 +13,8 @@ class FormsAddJob extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.requestEditJob = this.requestEditJob.bind(this);
+        this.requestNewJob = this.requestNewJob.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -38,11 +40,30 @@ class FormsAddJob extends React.Component {
         this.setState({category: event.target.value});
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
+    requestEditJob(object, properties) {
+        console.log(properties);
+        const jobsUrl = '/jobs/' + properties._id;
+        const me = this;
+        console.log(jobsUrl);
+        $.ajax({
+            url: jobsUrl,
+            dataType: 'json',
+            type: 'put',
+            data: object,
+            success: function (data) {
+                me.props.closeForms();
+                me.props.onJobUpdate();
+            },
+            error: function (err) {
+                console.log(err);
+                console.log("Couldn't edit the job")
+            }
+        });
+    }
+
+    requestNewJob() {
         const jobsUrl = '/jobs/';
         const me = this;
-        console.log(this.state);
         $.ajax({
             url: jobsUrl,
             dataType: 'json',
@@ -63,6 +84,18 @@ class FormsAddJob extends React.Component {
                 console.log("Couldn't add new job")
             }
         });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        if(this.props.mode === 'edit') {
+            console.log('editJob');
+            this.requestEditJob(this.state, this.props.properties);
+        } else {
+            console.log('newJob');
+            this.requestNewJob();
+        }
     }
 
     render() {
