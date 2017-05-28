@@ -13,10 +13,12 @@ class Header extends React.Component {
                         <div className="col-lg-3 col-xs-0 ">
                         </div>
                         <div className="col-lg-1 col-xs-3">
-                            <div className="HeaderImage">
-                                <a href="#" className="smoothScroll">
-                                    <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
-                                </a>
+                            <div className="HeaderMiddle">
+                                <div className="HeaderImage">
+                                    <a href="#" className="smoothScroll">
+                                        <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="col-lg-4 col-xs-6" onClick={()=>this.props.changeMainPage('projects', 'Escolha um projeto')}>
