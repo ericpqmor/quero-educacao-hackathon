@@ -1,4 +1,8 @@
 .taskTable {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
   thead {
     th {
       text-align: center;
@@ -9,7 +13,20 @@
       display: table-row;
       td {
         text-align: center;
+        i {
+          padding: 0.5px 0.5px;
+        }
       }
+    }
+
+    $iconSize: 28px;
+    .trashIcon {
+      right: 15px;
+      position: absolute;
+    }
+    .editIcon {
+      right: 15px + $iconSize;
+      position: absolute;
     }
   }
 }

@@ -1,15 +1,13 @@
 import React from '../../../node_modules/react/react';
 
-import DeleteJob from './DeleteJob.jsx';
-
-class JobsList extends React.Component {
+class DeleteJob extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleEditClick = this.handleEditClick.bind(this);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
     }
 
-    handleEditClick() {
+    handleDeleteClick() {
         const job = this.props.properties;
         const jobsUrl = 'jobs/' + job._id;
         const me = this;
@@ -22,6 +20,7 @@ class JobsList extends React.Component {
                 id: job.id
             },
             success: function (msg) {
+
                 //console.log(msg);
             },
             error: function (err) {
@@ -34,15 +33,10 @@ class JobsList extends React.Component {
 
     render() {
         return (
-            <tr key={this.props.properties.name} className='btn' onClick={this.handleEditClick}>
-                <td>
-                    <span>{this.props.properties.name}</span>
-                    <DeleteJob onJobUpdate={this.props.onJobUpdate}
-                                properties={this.props.properties}/>
-                </td>
-            </tr>
+            <i className="fa fa-trash-o fa-2x trashIcon btn"
+               onClick={this.handleDeleteClick}></i>
         )
     }
 }
 
-export default JobsList;
+export default DeleteJob;

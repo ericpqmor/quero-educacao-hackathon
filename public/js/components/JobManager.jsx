@@ -8,7 +8,6 @@ class JobManager extends React.Component {
         super(props);
 
         this.state = {
-            loadingJobs: true,
             jobs: {}
         };
 
@@ -17,8 +16,7 @@ class JobManager extends React.Component {
 
     componentDidMount() {
         this.setState({
-            jobs: this.requestJobs(),
-            loadingJobs: true
+            jobs: this.requestJobs()
         });
     }
 
@@ -30,12 +28,9 @@ class JobManager extends React.Component {
             dataType: 'json',
             type: 'get',
             success: function (data) {
-                if(me.state.loadingJobs === true) {
-                    me.setState({
-                        loadingJobs: false,
-                        jobs: data
-                    });
-                }
+                me.setState({
+                    jobs: data
+                });
 
                 return data;
             },
@@ -48,17 +43,16 @@ class JobManager extends React.Component {
 
     updateJobs() {
         this.setState({
-            jobs: this.requestJobs(),
-            loadingJobs: true
+            jobs: this.requestJobs()
         });
     }
 
     render() {
         return (
             <div>
-                <JobsList jobs={this.state.jobs} loadingJobs={this.state.loadingJobs}
-                        onJobDeletion={this.updateJobs}/>
-                <FormsAddJob onsubmit={this.updateJobs}/>
+                <JobsList jobs={this.state.jobs}
+                        onJobUpdate={this.updateJobs}/>
+                <FormsAddJob onJobUpdate={this.updateJobs}/>
             </div>
         );
     }
