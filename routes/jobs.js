@@ -33,6 +33,7 @@ router.get("/history", function (req, res) {
         if(err) {
             console.log(err);
         } else {
+            console.log(res);
             res.json({jobs:allJobs});
         }
     });
@@ -106,15 +107,14 @@ router.put("/:id", function (req, res) {
 //DESTROY JOB ROUTE
 router.delete("/:id", function (req, res) {
 
-    const foundJob = Job.findById(req.params.id).exec(function (err, foundJob) {
+    Job.findById(req.params.id).exec(function (err, foundJob) {
         if (err) {
             console.log(err);
         } else {
             console.log("found the job to be destroyed");
-        }
-    });
 
-    History.create(foundJob, function (err, newlyArchived) {
+
+            History.create(foundJob, function (err, newlyArchived) {
                 if(err) {
                     res.send(err);
                     console.log(err);
@@ -126,10 +126,16 @@ router.delete("/:id", function (req, res) {
                             console.log("Done");
                         }
                     });
-                  //  res.send(newlyArchived);
+                    //  res.send(newlyArchived);
                 }
             });
             res.send({job: foundJob});
+
+
+        }
+    });
+
+
 });
 
 //DESTROY HISTORY ROUTE

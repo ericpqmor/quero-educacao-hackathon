@@ -1,5 +1,7 @@
 import React from '../../../node_modules/react';
 
+import History from './History.jsx';
+
 class HistoryList extends React.Component {
     constructor(props) {
         super(props);
@@ -7,8 +9,9 @@ class HistoryList extends React.Component {
 
     transformHistorysIntoHTML(historys) {
         let data = [];
+        console.log(historys);
         if(historys !== undefined) {
-            const v = historys.historys;
+            const v = historys.jobs;
             for (let i in v) {
                 if (v.hasOwnProperty(i)) {
                     data.push(
@@ -41,8 +44,5 @@ class HistoryList extends React.Component {
     }
 
 }
-
-import Job from './History.jsx';
-
 
 export default HistoryList;

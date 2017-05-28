@@ -3,8 +3,6 @@ import React from '../../../node_modules/react/react';
 class History extends React.Component {
     constructor(props) {
         super(props);
-
-        this.handleEditClick = this.handleEditClick.bind(this);
     }
 
 
