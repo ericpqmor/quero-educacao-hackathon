@@ -16,6 +16,7 @@ class FormsAddJob extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.requestEditJob = this.requestEditJob.bind(this);
         this.requestNewJob = this.requestNewJob.bind(this);
+        this.getPeople = this.getPeople(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -106,6 +107,10 @@ class FormsAddJob extends React.Component {
         }
     }
 
+    getPeople() {
+
+    }
+
     render() {
         const style = {
             visibility: this.props.formsVisible ? 'visible' : 'hidden'
@@ -152,6 +157,14 @@ class FormsAddJob extends React.Component {
                 <br />
                 <label>
                     Tipo de tarefa: &nbsp;
+                    <select value={this.state.category} onChange={this.handleOptionChange}>
+                        <option value="pontual">Pontual</option>
+                        <option value="cyclic">Cíclica</option>
+                    </select>
+                </label>
+                <br />
+                <label>
+                    Número de Pessoas: &nbsp;
                     <select value={this.state.category} onChange={this.handleOptionChange}>
                         <option value="pontual">Pontual</option>
                         <option value="cyclic">Cíclica</option>
