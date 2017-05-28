@@ -41,10 +41,9 @@ class FormsAddJob extends React.Component {
     }
 
     requestEditJob(object, properties) {
-        console.log(properties);
         const jobsUrl = '/jobs/' + properties._id;
         const me = this;
-        console.log(jobsUrl);
+
         $.ajax({
             url: jobsUrl,
             dataType: 'json',
@@ -90,10 +89,8 @@ class FormsAddJob extends React.Component {
         event.preventDefault();
 
         if(this.props.mode === 'edit') {
-            console.log('editJob');
             this.requestEditJob(this.state, this.props.properties);
         } else {
-            console.log('newJob');
             this.requestNewJob();
         }
     }
