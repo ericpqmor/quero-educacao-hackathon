@@ -4,11 +4,11 @@ import JobsList from './jobs/JobsList.jsx';
 import Header from './Header.jsx';
 
 class Footer extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-            tarefasActive: true
+            tarefasActive: this.props.bodyState
         }
     }
 
@@ -22,16 +22,16 @@ class Footer extends React.Component {
     render() {
         if (this.state.tarefasActive === true){
             return (
-                <div className="container force-to-bottom">
-                     <button type="button" className="btn col-md-offset-2 col-md-4 col-xs-6 footerbutton tarefas" onClick={this.handleClick}>Tarefas</button>
+                <div className="force-to-bottom">
+                     <button type="button" className="btn col-md-4 col-xs-6 footerbutton tarefas" onClick={this.handleClick}>Tarefas</button>
                      <button type="button" className="btn col-md-4 col-xs-6 footerbutton historico">Historico</button>
                 </div>
             )
         }
         else {
             return (
-                <div className="container force-to-bottom">
-                    <button type="button" className="btn col-md-offset-2 col-md-4 col-sm-6 footerbutton tarefas">Tarefas</button>
+                <div className="force-to-bottom">
+                    <button type="button" className="btn col-md-4 col-sm-6 footerbutton tarefas">Tarefas</button>
                     <button type="button" className="btn col-md-4 col-sm-6 footerbutton historico" onClick={this.handleClick}>Historico</button>
                 </div>
             )
