@@ -44,28 +44,6 @@ const data = [
     }
 ];
 
-const users = [
-    {
-        username: "ericpqmor",
-        email: "ericpqmor@gmail.com",
-        password: "birl"
-    },
-    {
-        username: "dono",
-        email: "ribeiro_igor@hotmail.com",
-        password: "sugar"
-    },
-    {
-        username: "shark",
-        email: "carlos@gmail.com",
-        password: "ehcara"
-    },
-    {
-        username: 'Aloysio',
-        email: 'aloysiogl@gmail.com',
-        password: 'Oieee'
-    }
-];
 
 function seedDB() {
     //Clean the job database
