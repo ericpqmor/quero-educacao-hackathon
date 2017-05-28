@@ -1,4 +1,55 @@
 @import "Styles";
+@import "Header";
+
+.thisFooter{
+  background-color: $BodyBackgroundColor;
+  height: 50px;
+  text-align: center;
+  color: $HeaderFontColor;
+  font-size: 30px;
+}
+#Tobottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footerLeft{
+  background-color: $BodyFooterColor1;
+
+}
+#footerLeft{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  background-color: $BodyFooterColor1;
+}
+#footerLeft:hover{
+  background-color: $ContentBlue2;
+  cursor: pointer;
+  cursor: hand;
+}
+#footerRight{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  background-color: $BodyFooterColor2;
+}
+#footerRight:hover{
+  background-color: $ContentBrown2;
+  cursor: pointer;
+  cursor: hand;
+}
+.FooterText{
+  vertical-align: middle;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  height: auto;
+  display: inline-block;
+}
+.FooterText:hover{
+  cursor: pointer;
+  cursor: hand;
+}
 
 .btn.footerbutton{
   border-radius: 0px;
@@ -6,6 +57,7 @@
 
 .force-to-bottom {
   bottom: 0%;
+  position: absolute;
 }
 
 .btn.tarefas{
