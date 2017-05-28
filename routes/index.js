@@ -3,8 +3,8 @@
  */
 const express = require('express');
 const router = express.Router();
-var passport = require('passport');
-var User = require('../models/user');
+const passport = require('passport');
+const User = require('../models/user');
 
 router.get('/', function(req, res) {
     res.render('index');
@@ -39,6 +39,14 @@ router.get("/logout", function(req, res){
    req.logout();
    //req.flash("sucess", "Logged you out!");
    res.redirect("/");
+});
+
+//handling login logic
+router.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/",
+        failureRedirect: "/login"
+    }), function(req, res){
 });
 
 module.exports = router;
