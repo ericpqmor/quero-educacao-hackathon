@@ -15,7 +15,7 @@ class Projects extends React.Component {
                 if (v.hasOwnProperty(i)) {
                     data.push(
                         <tr key={v[i].name + Math.random().toString()}
-                            className='btn'>
+                            className='btn' onClick={()=>this.props.changeMainPage('job', v[i].name)}>
                             <td>
                                 <span>{v[i].name}</span>
                             </td>

@@ -1,11 +1,22 @@
 function getProjects() {
     let data = [];
 
-    for(let i = 1; i <= 5; i ++) {
-        data.push({
-            name: "Project " + i.toString()
-        });
-    }
+
+    data.push({
+        name: "Família"
+    });
+    data.push({
+       name: "Churrasco com os amigos"
+    });
+    data.push({
+        name: "Relatório da Faculdade"
+    });
+    data.push({
+        name: "Alojamento"
+    });
+    data.push({
+        name: "Festa surpresa do João"
+    });
 
     return data;
 }

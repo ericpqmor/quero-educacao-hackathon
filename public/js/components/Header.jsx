@@ -17,10 +17,10 @@ class Header extends React.Component {
                                 <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-xs-6" onClick={()=>this.props.changeMainPage('projects')}>
+                        <div className="col-lg-4 col-xs-6" onClick={()=>this.props.changeMainPage('projects', 'Escolha um projeto')}>
                             <div className="HeaderMiddle">
                                 <div className="HeaderText">
-                                    Projeto 1
+                                    {this.props.projectName}
                                 </div>
                                 <div className="HeaderText">
                                     <span className="glyphicon glyphicon-triangle-bottom" ></span>

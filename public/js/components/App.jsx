@@ -11,31 +11,34 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            mainPage: 'projects'
+            mainPage: 'projects',
+            projectName: 'Escolha um projeto'
         };
 
         this.changeMainPage = this.changeMainPage.bind(this);
     }
 
-    changeMainPage(newMainPage) {
+    changeMainPage(newMainPage, name) {
         this.setState({
-            mainPage: newMainPage
+            mainPage: newMainPage,
+            projectName: name
         })
     }
 
     render() {
+        console.log(this.state);
         if(this.state.mainPage === 'projects') {
             return (
                 <div>
-                    <Header changeMainPage={this.changeMainPage}/>
-                    <Projects/>
+                    <Header changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
+                    <Projects changeMainPage={this.changeMainPage}/>
                     <Footer/>
                 </div>
             )
         } else if (this.state.mainPage === 'job') {
             return (
                 <div>
-                    <Header changeMainPage={this.changeMainPage}/>
+                    <Header changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
                     <JobManager/>
                     <Footer/>
                 </div>
@@ -43,7 +46,7 @@ class App extends React.Component {
         } else {
             return (
                 <div>
-                    <Header changeMainPage={this.changeMainPage}/>
+                    <Header changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
                     <HistoryManager/>
                     <Footer/>
                 </div>
