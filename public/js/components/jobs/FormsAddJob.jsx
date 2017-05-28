@@ -7,7 +7,8 @@ class FormsAddJob extends React.Component {
             name: this.props.properties.name,
             description: this.props.properties.description,
             image: this.props.properties.image,
-            category: this.props.properties.category
+            category: this.props.properties.category,
+            money: this.props.properties.money
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -22,14 +23,19 @@ class FormsAddJob extends React.Component {
             name: nextProps.properties.name,
             description: nextProps.properties.description,
             image: nextProps.properties.image,
-            category: nextProps.properties.category
+            category: nextProps.properties.category,
+            money: nextProps.properties.money
         });
     }
 
     handleInputChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+
+        let value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
+        if(name === 'money') {
+            value = parseFloat(value);
+        }
 
         this.setState({
             [name]: value
@@ -58,11 +64,14 @@ class FormsAddJob extends React.Component {
                 console.log("Couldn't edit the job")
             }
         });
+
+        console.log(object);
     }
 
     requestNewJob() {
         const jobsUrl = '/jobs/';
         const me = this;
+        console.log(this.state);
         $.ajax({
             url: jobsUrl,
             dataType: 'json',
@@ -73,6 +82,7 @@ class FormsAddJob extends React.Component {
                     name: '',
                     description: '',
                     image: '',
+                    money: 0,
                     category: 'pontual'
                 });
                 me.props.closeForms();
@@ -83,6 +93,7 @@ class FormsAddJob extends React.Component {
                 console.log("Couldn't add new job")
             }
         });
+
     }
 
     handleSubmit(event) {
@@ -126,6 +137,15 @@ class FormsAddJob extends React.Component {
                         name="image"
                         type="text"
                         value={this.state.image}
+                        onChange={this.handleInputChange} />
+                </label>
+                <br />
+                <label>
+                    Dinheiro: &nbsp;
+                    <input
+                        name="money"
+                        type="number"
+                        value={parseFloat(this.state.money)}
                         onChange={this.handleInputChange} />
                 </label>
                 <br />
