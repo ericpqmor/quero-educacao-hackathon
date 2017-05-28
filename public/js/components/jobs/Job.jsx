@@ -1,5 +1,6 @@
 import React from '../../../node_modules/react/react';
 
+import GetMoney from './GetMoney.jsx';
 import DeleteJob from './DeleteJob.jsx';
 
 class Job extends React.Component {
@@ -26,6 +27,7 @@ class Job extends React.Component {
                     <span>{this.props.properties.name}</span>
                     <DeleteJob onJobUpdate={this.props.onJobUpdate}
                                 properties={this.props.properties}/>
+                    <GetMoney properties={this.props.properties}/>
                 </td>
 
                 <form action={"/jobs/" + this.props.properties._id + "/assigned/send"} method="post">
