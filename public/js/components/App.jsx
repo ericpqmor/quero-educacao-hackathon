@@ -26,16 +26,6 @@ class App extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <Header changeMainPage={this.changeMainPage} projectName={this.state.projectName}/>
-                <Projects changeMainPage={this.changeMainPage}/>
-                <JobManager/>
-                <HistoryManager/>
-                <Footer/>
-            </div>
-        )
-
         if(this.state.mainPage === 'projects') {
             return (
                 <div>
