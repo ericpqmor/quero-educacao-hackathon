@@ -9,7 +9,7 @@ class FormsAddJob extends React.Component {
             image: this.props.properties.image,
             category: this.props.properties.category,
             money: this.props.properties.money,
-            assigned: []
+            assigned: '0'
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -87,7 +87,7 @@ class FormsAddJob extends React.Component {
                     image: '',
                     money: 0,
                     category: 'pontual',
-                    assigned: []
+                    assigned: 0
                 });
                 me.props.closeForms();
                 me.props.onJobUpdate();
@@ -129,7 +129,8 @@ class FormsAddJob extends React.Component {
                     }
                 }
                 me.setState({
-                    people: finalData
+                    people: finalData,
+                    assigned: finalData.size
                 });
                 me.props.closeForms();
                 me.props.onJobUpdate();
@@ -198,7 +199,7 @@ class FormsAddJob extends React.Component {
                 <label>
                     Número de Pessoas: &nbsp;
                     <select value={this.state.assigned} onChange={this.handleOptionChange}>
-                        {this.state.people}
+                        {this.state.assigned}
                     </select>
                 </label>
                 <br />

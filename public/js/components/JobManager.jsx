@@ -16,7 +16,7 @@ class JobManager extends React.Component {
                 image: '',
                 category: 'pontual',
                 money: 10,
-                assigned: []
+                assigned: 0
             }
         };
 
