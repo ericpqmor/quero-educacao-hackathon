@@ -15,7 +15,7 @@ router.get("/", function (req, res) {
    //Get all jobs from DB
     Job.find({}, function(err, allJobs) {
         if(err) {
-            //req.flash("error", err.message);
+            req.flash("error", err.message);
         } else {
             res.json({jobs:allJobs});
         }
