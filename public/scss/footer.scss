@@ -1,3 +1,5 @@
+@import "Styles";
+
 .btn.footerbutton{
   border-radius: 0px;
 }
@@ -6,18 +8,10 @@
   bottom: 0%;
 }
 
-.btn.tarefasActive{
-  background-color: #00bcd4;
+.btn.tarefas{
+  background-color: $BodyFooterColor1;
 }
 
-.btn.tarefasInactive{
-  background-color: brown;
-}
-
-.btn.historicoActive{
-  background-color: antiquewhite;
-}
-
-.btn.historicoInactive{
-  background-color: brown;
+.btn.historico{
+  background-color: $BodyFooterColor2;
 }

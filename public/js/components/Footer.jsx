@@ -23,16 +23,16 @@ class Footer extends React.Component {
         if (this.state.tarefasActive === true){
             return (
                 <div className="container force-to-bottom">
-                     <button type="button" className="btn col-md-offset-2 col-md-4 col-xs-6 footerbutton tarefasActive" onClick={this.handleClick}>Tarefas</button>
-                     <button type="button" className="btn col-md-4 col-xs-6 footerbutton historicoInactive">Historico</button>
+                     <button type="button" className="btn col-md-offset-2 col-md-4 col-xs-6 footerbutton tarefas" onClick={this.handleClick}>Tarefas</button>
+                     <button type="button" className="btn col-md-4 col-xs-6 footerbutton historico">Historico</button>
                 </div>
             )
         }
         else {
             return (
                 <div className="container force-to-bottom">
-                    <button type="button" className="btn col-md-offset-2 col-md-4 col-sm-6 footerbutton tarefasInactive">Tarefas</button>
-                    <button type="button" className="btn col-md-4 col-sm-6 footerbutton historicoActive" onClick={this.handleClick}>Historico</button>
+                    <button type="button" className="btn col-md-offset-2 col-md-4 col-sm-6 footerbutton tarefas">Tarefas</button>
+                    <button type="button" className="btn col-md-4 col-sm-6 footerbutton historico" onClick={this.handleClick}>Historico</button>
                 </div>
             )
         }
