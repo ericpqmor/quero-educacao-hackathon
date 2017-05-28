@@ -19,6 +19,7 @@ class Footer extends React.Component {
     }
 
     render() {
+
         if (this.state.tarefasActive === true){
             return (
                 <div className="thisFooter" id="Tobottom">
@@ -45,6 +46,12 @@ class Footer extends React.Component {
                         </div>
                     </div>
                 </div>
+
+
+                //<div className="force-to-bottom">
+                  //   <button type="button" className="btn col-md-4 col-xs-6 footerbutton tarefas" onClick={this.handleClick}>Tarefas</button>
+                 //    <button type="button" className="btn col-md-4 col-xs-6 footerbutton historico">Historico</button>
+                //</div>
             )
         }
         else {
@@ -74,6 +81,11 @@ class Footer extends React.Component {
                     </div>
                 </div>
             </div>
+               // <div className="force-to-bottom">
+                 //   <button type="button" className="btn col-md-4 col-sm-6 footerbutton tarefas">Tarefas</button>
+                //    <button type="button" className="btn col-md-4 col-sm-6 footerbutton historico" onClick={this.handleClick}>Historico</button>
+               // </div>
+
             )
         }
     }
