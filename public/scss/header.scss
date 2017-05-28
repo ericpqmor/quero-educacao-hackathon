@@ -1,0 +1,37 @@
+@import 'Styles.scss';
+
+.thisNavbar{
+  background-color: $HeaderBlue1;
+  height: 50px;
+  text-align: center;
+  color: $HeaderFontColor;
+  font-size: 30px;
+}
+
+.HeaderImage{
+  margin-top: 2px;
+  text-align: center;
+}
+.HeaderText{
+  vertical-align: middle;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  height: auto;
+  display: inline-block;
+}
+.glyphicon{
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -5px;
+}
+.HeaderText:hover{
+  background-color: $HeaderBlue2;
+}
+.HeaderMiddle{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+.HeaderMiddle:hover{
+  background-color: $HeaderBlue2;
+}
