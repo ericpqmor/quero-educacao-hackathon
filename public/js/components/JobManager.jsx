@@ -2,6 +2,7 @@ import React from '../../node_modules/react/';
 
 import JobsList from './jobs/JobsList.jsx';
 import FormsAddJob from './jobs/FormsAddJob.jsx';
+import AddJob from './jobs/AddJob.jsx';
 
 class JobManager extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class JobManager extends React.Component {
         this.state = {
             jobs: {},
             forms: false,
+            formsAdd: false,
             properties: {
                 name: '',
                 description: '',
@@ -73,15 +75,18 @@ class JobManager extends React.Component {
                           openForms = {this.openForms}
                           closeForms={this.closeForms}/>
                 </div>
+                <AddJob onJobUpdate={this.updateJobs}
+                        closeForms={this.closeForms}/>
 
                 <div className="col-md-offset-3 col-md-6">
-                <FormsAddJob onJobUpdate={this.updateJobs}
-                             jobs={this.state.jobs}
-                             formsVisible={this.state.forms}
-                             closeForms={this.closeForms}
-                             properties={this.state.properties}
-                             mode="edit"/>
+                    <FormsAddJob onJobUpdate={this.updateJobs}
+                                 jobs={this.state.jobs}
+                                 formsVisible={this.state.forms}
+                                 closeForms={this.closeForms}
+                                 properties={this.state.properties}
+                                 mode="edit"/>
                 </div>
+
             </div>
         );
     }
