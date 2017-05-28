@@ -29,8 +29,9 @@ router.post("/", function (req, res) {
     const image = req.body.image;
     const description = req.body.description;
     const category = req.body.category;
+    const money = req.body.money;
 
-    const newJob = {name: name, image: image, description: description, category: category};
+    const newJob = {name: name, image: image, description: description, category: category, money: req.body.money};
 
     //Create a job and save it to DB
     Job.create(newJob, function (err, newlyCreated) {
