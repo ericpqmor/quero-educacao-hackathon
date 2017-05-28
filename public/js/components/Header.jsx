@@ -14,7 +14,9 @@ class Header extends React.Component {
                         </div>
                         <div className="col-lg-1 col-xs-3">
                             <div className="HeaderImage">
-                                <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
+                                <a href="#" className="smoothScroll">
+                                    <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
+                                </a>
                             </div>
                         </div>
                         <div className="col-lg-4 col-xs-6" onClick={()=>this.props.changeMainPage('projects', 'Escolha um projeto')}>
