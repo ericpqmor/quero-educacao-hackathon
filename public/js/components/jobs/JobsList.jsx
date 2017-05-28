@@ -15,7 +15,8 @@ class JobsList extends React.Component {
                 if (v.hasOwnProperty(i)) {
                     data.push(
                         <Job properties={v[i]} key={v[i].name}
-                             onJobUpdate={this.props.onJobUpdate}/>
+                             onJobUpdate={this.props.onJobUpdate}
+                             openForms={this.props.openForms}/>
                     );
                 }
             }

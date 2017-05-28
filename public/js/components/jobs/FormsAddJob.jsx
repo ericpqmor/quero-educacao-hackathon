@@ -4,15 +4,24 @@ class FormsAddJob extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            description: '',
-            image: '',
-            category: 'pontual'
+            name: this.props.properties.name,
+            description: this.props.properties.description,
+            image: this.props.properties.image,
+            category: this.props.properties.category
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            name: nextProps.properties.name,
+            description: nextProps.properties.description,
+            image: nextProps.properties.image,
+            category: nextProps.properties.category
+        });
     }
 
     handleInputChange(event) {
@@ -33,6 +42,7 @@ class FormsAddJob extends React.Component {
         event.preventDefault();
         const jobsUrl = '/jobs/';
         const me = this;
+        console.log(this.state);
         $.ajax({
             url: jobsUrl,
             dataType: 'json',
@@ -45,6 +55,7 @@ class FormsAddJob extends React.Component {
                     image: '',
                     category: 'pontual'
                 });
+                me.props.closeForms();
                 me.props.onJobUpdate();
             },
             error: function (err) {
@@ -55,8 +66,11 @@ class FormsAddJob extends React.Component {
     }
 
     render() {
+        const style = {
+            visibility: this.props.formsVisible ? 'visible' : 'hidden'
+        };
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} style={style}>
                 <label>
                     Nome: &nbsp;
                     <input
@@ -69,7 +83,7 @@ class FormsAddJob extends React.Component {
                 <br />
                 <label>
                     Descrição: &nbsp;
-                    <input
+                    <textarea
                         name="description"
                         type="text"
                         value={this.state.description}

@@ -8,10 +8,19 @@ class JobManager extends React.Component {
         super(props);
 
         this.state = {
-            jobs: {}
+            jobs: {},
+            forms: false,
+            properties: {
+                name: '',
+                description: '',
+                image: '',
+                category: 'pontual'
+            }
         };
 
         this.updateJobs = this.updateJobs.bind(this);
+        this.openForms = this.openForms.bind(this);
+        this.closeForms = this.closeForms.bind(this);
     }
 
     componentDidMount() {
@@ -47,12 +56,24 @@ class JobManager extends React.Component {
         });
     }
 
+    openForms(properties) {
+        this.setState({forms: true, properties: properties});
+    }
+    closeForms() {
+        this.setState({forms: false});
+    }
+
     render() {
         return (
             <div>
                 <JobsList jobs={this.state.jobs}
-                        onJobUpdate={this.updateJobs}/>
-                <FormsAddJob onJobUpdate={this.updateJobs}/>
+                          onJobUpdate={this.updateJobs}
+                          openForms = {this.openForms}
+                          closeForms={this.closeForms}/>
+                <FormsAddJob onJobUpdate={this.updateJobs}
+                             formsVisible={this.state.forms}
+                             closeForms={this.closeForms}
+                             properties={this.state.properties}/>
             </div>
         );
     }

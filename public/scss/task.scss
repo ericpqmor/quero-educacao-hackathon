@@ -14,7 +14,7 @@
       td {
         text-align: center;
         i {
-          padding: 0.5px 0.5px;
+          padding: 3px 3px;
         }
       }
     }
@@ -22,10 +22,6 @@
     $iconSize: 28px;
     .trashIcon {
       right: 15px;
-      position: absolute;
-    }
-    .editIcon {
-      right: 15px + $iconSize;
       position: absolute;
     }
   }
