@@ -23,7 +23,7 @@ router.get("/", function (req, res) {
 });
 
 //CREATE - Add new job to database
-router.post("/", middleware.isLoggedIn, function (req, res) {
+router.post("/", function (req, res) {
    //get data from forms and add to jobs array
     const name = req.body.name;
     const image = req.body.image;
@@ -44,7 +44,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
 });
 
 //NEW - show form to create new job
-router.get("/new",  middleware.isLoggedIn, function (req, res) {
+router.get("/new", function (req, res) {
    res.render("jobs/new");
 });
 
@@ -76,16 +76,15 @@ router.get("/", function (req, res) {
 router.put("/:id", function (req, res) {
     console.log('herioeogr');
    //find and update the correct job
-    Job.findByIdAndUpdate(req.params.id, function(err, updatedJob){
+    Job.findByIdAndUpdate(req.params.id, req.body.job, function(err, updatedJob){
        if(err) {
            console.log('deu erro');
            console.log(err);
-           res.json({});
+           res.send({});
        } else {
            //redirect somewhere - project page
-           console.log(req);
-           console.log(updatedJob);
-           res.json(updatedJob);
+           console.log("worked");
+           res.send(updatedJob);
        }
     });
 });
