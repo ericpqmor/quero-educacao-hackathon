@@ -2,6 +2,7 @@ import React from '../../node_modules/react';
 
 import JobManager from './JobManager.jsx';
 import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 
 class App extends React.Component {
     constructor() {
@@ -13,6 +14,8 @@ class App extends React.Component {
             <div>
                 <Header/>
                 <JobManager/>
+                <JobsList/>
+                <Footer/>
             </div>
         )
     }

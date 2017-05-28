@@ -13,17 +13,29 @@ class Footer extends React.Component {
     }
 
     handleClick() {
-        this.state.tarefasAvtive = !this.state.tarefasAvtive;
+        this.setState({
+            tarefasActive: !this.state.tarefasActive
+        });
     }
 
 
     render() {
-        if (this.state.tarefasAvtive === true)
-        return (
-            <div>
-                <button type="button" className="btn">Basic</button>
-            </div>
-        )
+        if (this.state.tarefasActive === true){
+            return (
+                <div className="container force-to-bottom">
+                    <button type="button" className="btn col-md-6 footerbutton" onClick={this.handleClick}>Basigc</button>
+                    <button type="button" className="btn col-md-6 footerbutton">Basic2</button>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="container force-to-bottom">
+                    <button type="button" className="btn col-md-6 footerbutton">Basic1</button>
+                    <button type="button" className="btn col-md-6 footerbutton" onClick={this.handleClick}>Basic2</button>
+                </div>
+            )
+        }
     }
 }
 
