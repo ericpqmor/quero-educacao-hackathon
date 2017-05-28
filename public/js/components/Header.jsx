@@ -7,56 +7,41 @@ class Header extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-default">
-                <div className="container-fluid">
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        <a className="navbar-brand" href="#">Brand</a>
-                    </div>
-                    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul className="nav navbar-nav">
-                            <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                            <li><a href="#">Link</a></li>
-                            <li className="dropdown">
-                                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                                <ul className="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" className="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li role="separator" className="divider"></li>
-                                    <li><a href="#">One more separated link</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form className="navbar-form navbar-left">
-                            <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Search"/>
+            <div className="thisNavbar">
+                <div className="container">
+                    <div className="row thisNavbar" >
+                        <div className="col-lg-3">
+                        </div>
+                        <div className="col-lg-1">
+                            <div className="HeaderImage">
+                                <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
                             </div>
-                            <button type="submit" className="btn btn-default">Submit</button>
-                        </form>
-                        <ul className="nav navbar-nav navbar-right">
-                            <li><a href="#">Link</a></li>
-                            <li className="dropdown">
-                                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                                <ul className="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" className="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        </div>
+                        <div className="col-lg-4">
+                            <div className="HeaderMiddle">
+                                <div className="HeaderText">
+                                    Projeto 1
+                                </div>
+                                <div className="HeaderText">
+                                    <span className="glyphicon glyphicon-triangle-bottom" ></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-1">
+                            <div className="HeaderMiddle">
+                            <div className="HeaderText">
+                                <span className="glyphicon glyphicon-adjust" ></span>
+                            </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-3">
+                        </div>
                     </div>
                 </div>
-            </nav>
+            </div>
+
+
+
         )
     }
 
