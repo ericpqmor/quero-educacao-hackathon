@@ -9,11 +9,10 @@ const History = require("../models/history");
 const middleware = require("../middleware");
 //Going to require database
 
-
-
 //INDEX
 
 // Show all jobs
+//INDEX - Show all jobs
 router.get("/", function (req, res) {
    //Get all jobs from DB
     Job.find({}, function(err, allJobs) {

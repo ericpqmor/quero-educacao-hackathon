@@ -1,8 +1,8 @@
 import React from '../../../node_modules/react/react';
 
-import DeleteJob from './DeleteJob.jsx';
+import DeleteJob from './DeleteHistory.jsx';
 
-class Job extends React.Component {
+class History extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,12 +22,12 @@ class Job extends React.Component {
                 className='btn'>
                 <td onClick={this.handleEditClick}>
                     <span>{this.props.properties.name}</span>
-                    <DeleteJob onJobUpdate={this.props.onJobUpdate}
-                                properties={this.props.properties}/>
+                    <DeleteJob onHistoryUpdate={this.props.onHistoryUpdate}
+                               properties={this.props.properties}/>
                 </td>
             </tr>
         )
     }
 }
 
-export default Job;
+export default History;
