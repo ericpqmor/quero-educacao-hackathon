@@ -1,6 +1,8 @@
 import React from '../../../node_modules/react/react';
 
 import JobsLoading from './JobsLoading.jsx';
+import Job from './Job.jsx';
+import FormsAddJob from "./FormsAddJob.jsx";
 
 class JobsList extends React.Component {
     constructor() {
@@ -32,7 +34,7 @@ class JobsList extends React.Component {
                         jobs: data
                     });
                 }
-                console.log(data);
+
                 return data;
             },
             error: function (err) {
@@ -48,8 +50,7 @@ class JobsList extends React.Component {
             if(v.hasOwnProperty(i)) {
                 data.push(
                     <tr key = {v[i].name}>
-                        <td>{v[i].name}</td>
-                        <td>{v[i].description}</td>
+                        <Job properties={v[i]}/>
                     </tr>
                 );
             }
@@ -66,19 +67,21 @@ class JobsList extends React.Component {
         }
         else {
             const tableData = this.transformJobsIntoHTML(this.state.jobs);
-            console.log(tableData);
+
             return (
-                <table className="table table-striped table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {tableData}
-                    </tbody>
-                </table>
+                <div>
+                    <table className="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Tarefas</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {tableData}
+                        </tbody>
+                    </table>
+                    <FormsAddJob/>
+                </div>
             )
         }
     }
