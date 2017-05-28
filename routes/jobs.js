@@ -120,6 +120,7 @@ router.delete("/:id", function (req, res) {
                 } else {
                     Job.findByIdAndRemove(req.params.id, function (err) {
                         if(err) {
+
                         } else {
                             console.log("Done");
                         }
