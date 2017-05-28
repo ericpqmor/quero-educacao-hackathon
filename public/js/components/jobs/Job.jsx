@@ -27,7 +27,6 @@ class Job extends React.Component {
                     <span>{this.props.properties.name}</span>
                     <DeleteJob onJobUpdate={this.props.onJobUpdate}
                                 properties={this.props.properties}/>
-                    <GetMoney properties={this.props.properties}/>
                 </td>
 
                 <form action={"/jobs/" + this.props.properties._id + "/assigned/send"} method="post">

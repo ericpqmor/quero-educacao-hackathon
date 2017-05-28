@@ -8,13 +8,13 @@ const History = require("./models/history");
 
 const users = [
     {
-        username: "shark",
-        email: "carlosmatheusbs@gmail.com",
+        username: "aloysio",
+        email: "aloysiogl@gmail.com",
         password: "ehcara"
     },
     {
-        username: "aloysio",
-        email: "aloysiogl@gmail.com",
+        username: "eric",
+        email: "ericpqmor@gmail.com",
         password: "81160709"
     },
     {
