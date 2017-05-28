@@ -91,9 +91,9 @@ router.put("/:id", function (req, res) {
 router.delete("/:id", function (req, res) {
    Job.findByIdAndRemove(req.params.id, function (err) {
       if(err) {
-          res.redirect("/");
+          res.send(err);
       } else {
-          res.redirect("/");
+          res.send('Done');
       }
    });
 });

@@ -14,9 +14,8 @@ class JobsList extends React.Component {
         for(let i in v) {
             if(v.hasOwnProperty(i)) {
                 data.push(
-                    <tr key = {v[i].name}>
-                        <Job properties={v[i]}/>
-                    </tr>
+                    <Job properties={v[i]} key={v[i].name}
+                         onJobDeletion={this.props.onJobDeletion}/>
                 );
             }
         }
@@ -35,7 +34,7 @@ class JobsList extends React.Component {
 
             return (
                 <div>
-                    <table className="table table-striped table-bordered table-hover">
+                    <table className="table table-striped table-bordered table-hover taskTable">
                         <thead>
                         <tr>
                             <th>Tarefas</th>

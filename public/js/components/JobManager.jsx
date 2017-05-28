@@ -22,14 +22,6 @@ class JobManager extends React.Component {
         });
     }
 
-    // componentDidUpdate() {
-    //     console.log('on componentDidUpdate');
-    //     this.setState({
-    //         jobs: this.requestJobs(),
-    //         loadingJobs: true
-    //     });
-    // }
-
     requestJobs() {
         const jobsUrl = '/jobs/';
         const me = this;
@@ -64,7 +56,8 @@ class JobManager extends React.Component {
     render() {
         return (
             <div>
-                <JobsList jobs={this.state.jobs} loadingJobs={this.state.loadingJobs}/>
+                <JobsList jobs={this.state.jobs} loadingJobs={this.state.loadingJobs}
+                        onJobDeletion={this.updateJobs}/>
                 <FormsAddJob onsubmit={this.updateJobs}/>
             </div>
         );
