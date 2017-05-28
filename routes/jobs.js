@@ -27,6 +27,7 @@ router.get("/", function (req, res) {
 
 // Show all the history
 router.get("/history", function (req, res) {
+    console.log('Get on history');
     //Get all jobs from history DB
     History.find({}, function (err, allJobs) {
         if(err) {
@@ -104,28 +105,30 @@ router.put("/:id", function (req, res) {
 //DESTROY JOB ROUTE
 router.delete("/:id", function (req, res) {
 
-    //ADD JOB TO HISTORY
-    const archivedJob = Job.findById(req.params.id, function (err){
+    foundJob = Job.findById(req.params.id).exec(function (err, foundJob) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("found the job to be destroyed");
+        }
     });
 
-    router.post("/history", function(archivedJob) {
-        History.create(archivedJob, function (err, newlyArchived) {
-            if(err) {
-                res.send(err);
-                console.log(err);
-            } else {
-                res.send(newlyArchived);
-            }
-        });
-    });
+    History.create(foundJob, function (err, newlyArchived) {
+                if(err) {
+                    res.send(err);
+                    console.log(err);
+                } else {
+                    Job.findByIdAndRemove(req.params.id, function (err) {
+                        if(err) {
 
-   Job.findByIdAndRemove(req.params.id, function (err) {
-      if(err) {
-          res.send(err);
-      } else {
-          res.send('Done');
-      }
-   });
+                        } else {
+                            console.log("Done");
+                        }
+                    });
+                  //  res.send(newlyArchived);
+                }
+            });
+            res.send({job: foundJob});
 });
 
 //DESTROY HISTORY ROUTE

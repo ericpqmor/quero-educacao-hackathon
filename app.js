@@ -22,7 +22,9 @@ const History = require("./models/history");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
-      indexRoutes = require("./routes/index");
+      indexRoutes = require("./routes/index"),
+      assignedRoutes = require("./routes/assigned"),
+      userRoutes = require("./routes/users");
 
 mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -65,6 +67,8 @@ app.use('/dashboard', express.static('./public'));
 //Loading all the routes
 app.use("/", indexRoutes);
 app.use("/jobs", jobRoutes);
+app.use("/jobs/:id/assigned", assignedRoutes);
+app.use("/users", userRoutes);
 
 app.listen(3000, function (req, res) {
     console.log("We are going to win this hackathon");

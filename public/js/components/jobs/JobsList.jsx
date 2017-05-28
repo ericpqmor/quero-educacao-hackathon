@@ -28,7 +28,7 @@ class JobsList extends React.Component {
     render() {
         const tableData = this.transformJobsIntoHTML(this.props.jobs);
         return (
-            <div>
+            <div className="col-md-offset-3 col-md-6 bodyStyleBack bodySize" id="table">
                 <table className="table table-striped table-bordered table-hover taskTable">
                     <thead>
                     <tr>

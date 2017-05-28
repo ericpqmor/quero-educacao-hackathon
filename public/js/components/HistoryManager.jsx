@@ -1,14 +1,13 @@
 import React from '../../node_modules/react/';
 
-import JobsList from './jobs/JobsList.jsx';
-import FormsAddJob from './jobs/FormsAddJob.jsx';
+import HistoryList from './history/HistoryList.jsx';
 
-class JobManager extends React.Component {
+class HistoryManager extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            jobs: {},
+            history: {},
             forms: false,
             properties: {
                 name: '',
@@ -19,41 +18,41 @@ class JobManager extends React.Component {
             }
         };
 
-        this.updateJobs = this.updateJobs.bind(this);
+        this.updateHistory = this.updateHistory.bind(this);
         this.openForms = this.openForms.bind(this);
         this.closeForms = this.closeForms.bind(this);
     }
 
     componentDidMount() {
         this.setState({
-            jobs: this.requestJobs()
+            history: this.requestHistory()
         });
     }
 
-    requestJobs() {
-        const jobsUrl = '/jobs/';
+    requestHistory() {
+        const historyUrl = '/jobs/history';
         const me = this;
         $.ajax({
-            url: jobsUrl,
+            url: historyUrl,
             dataType: 'json',
             type: 'get',
             success: function (data) {
                 me.setState({
-                    jobs: data
+                    history: data
                 });
 
                 return data;
             },
             error: function (err) {
                 console.log(err);
-                console.log("Couldn't load jobs from server")
+                console.log("Couldn't load history from server")
             }
         });
     }
 
-    updateJobs() {
+    updateHistory() {
         this.setState({
-            jobs: this.requestJobs()
+            history: this.requestHistory()
         });
     }
 
@@ -65,26 +64,16 @@ class JobManager extends React.Component {
     }
 
     render() {
+        console.log('here');
         return (
-            <div className="row">
-                <div className="col-md-12">
-                <JobsList jobs={this.state.jobs}
-                          onJobUpdate={this.updateJobs}
+            <div>
+                <HistoryList history={this.state.history}
+                          onJobUpdate={this.updateHistory}
                           openForms = {this.openForms}
                           closeForms={this.closeForms}/>
-                </div>
-
-                <div className="col-md-offset-3 col-md-6">
-                <FormsAddJob onJobUpdate={this.updateJobs}
-                             jobs={this.state.jobs}
-                             formsVisible={this.state.forms}
-                             closeForms={this.closeForms}
-                             properties={this.state.properties}
-                             mode="edit"/>
-                </div>
             </div>
         );
     }
 }
 
-export default JobManager;
+export default HistoryManager;

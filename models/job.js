@@ -11,15 +11,17 @@ const jobSchema = new mongoose.Schema({
     category: {
         type: String
     },
-    money: Number
-    /*
-    author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        username: String
-    }*/
+    money: Number,
+    assigned: [
+        {
+            id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            },
+            username: String,
+            email: String
+        }
+    ]
 });
 
 module.exports = mongoose.model("Job", jobSchema);
