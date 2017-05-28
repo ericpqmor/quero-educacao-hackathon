@@ -9,8 +9,6 @@ const History = require("../models/history");
 const middleware = require("../middleware");
 //Going to require database
 
-
-
 //INDEX
 
 // Show all jobs
