@@ -10,14 +10,14 @@ class Header extends React.Component {
             <div className="thisNavbar">
                 <div className="container">
                     <div className="row thisNavbar" >
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-xs-0 ">
                         </div>
-                        <div className="col-lg-1">
+                        <div className="col-lg-1 col-xs-3">
                             <div className="HeaderImage">
                                 <img src="/dashboard/img/Logo/LogoComplete.png" height={48}/>
                             </div>
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 col-xs-6">
                             <div className="HeaderMiddle">
                                 <div className="HeaderText">
                                     Projeto 1
@@ -27,14 +27,14 @@ class Header extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-1">
+                        <div className="col-lg-1 col-xs-3">
                             <div className="HeaderMiddle">
                             <div className="HeaderText">
                                 <span className="glyphicon glyphicon-adjust" ></span>
                             </div>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-xs-0">
                         </div>
                     </div>
                 </div>
