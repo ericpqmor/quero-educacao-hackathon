@@ -9,33 +9,17 @@ class JobsList extends React.Component {
         this.handleEditClick = this.handleEditClick.bind(this);
     }
 
-    handleEditClick() {
+    handleEditClick(e) {
         const job = this.props.properties;
-        const jobsUrl = 'jobs/' + job._id;
-        const me = this;
-
-        $.ajax({
-            url: jobsUrl,
-            dataType: 'json',
-            type: 'delete',
-            data: {
-                id: job.id
-            },
-            success: function (msg) {
-                //console.log(msg);
-            },
-            error: function (err) {
-                //console.log(err);
-            }
-        });
-
-        this.props.onJobUpdate();
+        if(e.target.className !== 'fa fa-trash-o fa-2x trashIcon btn') {
+            this.props.openForms(job);
+        }
     }
 
     render() {
         return (
-            <tr key={this.props.properties.name} className='btn' onClick={this.handleEditClick}>
-                <td>
+            <tr key={this.props.properties.name} className='btn'>
+                <td onClick={this.handleEditClick}>
                     <span>{this.props.properties.name}</span>
                     <DeleteJob onJobUpdate={this.props.onJobUpdate}
                                 properties={this.props.properties}/>
