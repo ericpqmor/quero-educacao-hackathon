@@ -2,7 +2,8 @@
 node_modules
 
 build/*
-public/build/js/bundle.js
+public/build/
+
 !build/js/.gitkeep
 !build/css/.gitkeep
 

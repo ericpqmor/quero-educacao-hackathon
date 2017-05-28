@@ -16,7 +16,7 @@ class JobsLoading extends React.Component {
     componentDidMount() {
         this.timerID = setInterval(
             ()=>this.tick(),
-            600
+            100
         )
     }
     componentWillUnmount() {
