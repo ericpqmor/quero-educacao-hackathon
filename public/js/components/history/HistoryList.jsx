@@ -1,22 +1,19 @@
 import React from '../../../node_modules/react';
 
-import Job from './History.jsx';
-
 class HistoryList extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    transformJobsIntoHTML(jobs) {
+    transformHistorysIntoHTML(historys) {
         let data = [];
-        if(jobs !== undefined) {
-            const v = jobs.jobs;
+        if(historys !== undefined) {
+            const v = historys.historys;
             for (let i in v) {
                 if (v.hasOwnProperty(i)) {
                     data.push(
-                        <Job properties={v[i]} key={v[i].name + v[i].description + Math.random().toString()}
-                             onHistoryUpdate={this.props.onHistoryUpdate}
-                             openForms={this.props.openForms}/>
+                        <History properties={v[i]} key={v[i].name + v[i].description + Math.random().toString()}
+                             onHistoryUpdate={this.props.onHistoryUpdate}/>
                     );
                 }
             }
@@ -26,7 +23,7 @@ class HistoryList extends React.Component {
     }
 
     render() {
-        const tableData = this.transformJobsIntoHTML(this.props.jobs);
+        const tableData = this.transformHistorysIntoHTML(this.props.history);
         return (
             <div>
                 <table className="table table-striped table-bordered table-hover taskTable">
@@ -44,5 +41,8 @@ class HistoryList extends React.Component {
     }
 
 }
+
+import Job from './History.jsx';
+
 
 export default HistoryList;
