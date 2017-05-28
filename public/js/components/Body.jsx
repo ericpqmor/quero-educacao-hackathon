@@ -1,29 +1,38 @@
 import React from '../../node_modules/react';
 
-import JobsList from './jobs/JobsList.jsx';
-import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 
 class Body extends React.Component {
     constructor() {
         super();
-        this.handleClick = this.handleClick.bind(this);
+        this.changeBodyState = this.changeBodyState.bind(this);
         this.state = {
-            tarefasActive: true
+            bodyState: "tarefas"
         }
     }
 
-    handleClick() {
-        this.setState({
-            tarefasActive: !this.state.tarefasActive
-        });
+    changeBodyState() {
+        if (this.bodyState === "tarefas") {
+            this.setState({
+                bodyState: "historico"
+            });
+        }
+        else {
+            this.setState({
+                bodyState: "tarefas"
+            });
+        }
     }
 
 
     render() {
-        if (this.state.tarefasActive === true){
+        if (this.state.bodyState === "tarefas"){
             return (
-                <div className="container bodyStyleBasic">
-                    dsfsfsfd
+                <div className="container">
+                    <div className="bodyStyleBack col-md-offset-2 col-md-8">
+                        ijljl
+                    </div>
+
                 </div>
             )
         }

@@ -1,4 +1,4 @@
-
+@import "Styles";
 
 body {
   margin: 0;
@@ -6,6 +6,7 @@ body {
   height: 100%;
   z-index: 1;
   overflow: hidden;
+  background-color: $BodyBackgroundColor;
 }
 
 @import 'footer.scss';
