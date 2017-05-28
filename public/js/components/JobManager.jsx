@@ -70,13 +70,15 @@ class JobManager extends React.Component {
         return (
             <div className="row">
                 <div className="col-md-12">
+
                 <JobsList jobs={this.state.jobs}
                           onJobUpdate={this.updateJobs}
                           openForms = {this.openForms}
                           closeForms={this.closeForms}/>
-                </div>
                 <AddJob onJobUpdate={this.updateJobs}
                         closeForms={this.closeForms}/>
+                </div>
+
 
                 <div className="col-md-offset-3 col-md-6">
                     <FormsAddJob onJobUpdate={this.updateJobs}

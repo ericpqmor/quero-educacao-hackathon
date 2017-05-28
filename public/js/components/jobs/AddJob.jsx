@@ -20,7 +20,7 @@ class AddJob extends React.Component {
 
     handleAddClick() {
         this.setState({
-           forms: true
+           forms: !this.state.forms
         });
 
         this.props.onJobUpdate();
@@ -35,12 +35,15 @@ class AddJob extends React.Component {
                 <div>
                     <i className="fa fa-plus fa-2x trashIcon btn"
                        onClick={this.handleAddClick} style={style}></i>
+
                     <FormsAddJob onJobUpdate={this.props.onJobUpdate}
                                  jobs={this.state.jobs}
                                  formsVisible={this.state.forms}
                                  closeForms={this.props.closeForms}
                                  properties={this.state.properties}
-                                 mode="add"/>
+                                 mode="add"
+                                 nameOfClass = "formAddButtonClass"
+                                 novaTarefa="sim"/>
                 </div>
             )
         } else {
