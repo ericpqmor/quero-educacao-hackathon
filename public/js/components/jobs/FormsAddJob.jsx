@@ -31,7 +31,26 @@ class FormsAddJob extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
+        const jobsUrl = '/jobs/';
+        const me = this;
+        $.ajax({
+            url: jobsUrl,
+            dataType: 'json',
+            type: 'post',
+            success: function (data) {
+                if(me.state.loadingJobs === true) {
+                    me.setState({
+                        loadingJobs: false,
+                        jobs: data
+                    });
+                }
+
+                return data;
+            },
+            error: function (err) {
+                console.log("Couldn't load jobs from server")
+            }
+        });
     }
 
     render() {
