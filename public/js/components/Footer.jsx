@@ -23,6 +23,7 @@ class Footer extends React.Component {
         if (this.state.tarefasActive === true){
             return (
 
+
                 <div className="thisFooter" id="Tobottom">
                     <div className="container">
                         <div className="row thisFooter" >

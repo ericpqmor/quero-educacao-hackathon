@@ -1,5 +1,5 @@
 import React from '../../node_modules/react';
-
+import JobManager from './JobManager.jsx';
 import Footer from './Footer.jsx';
 
 class Body extends React.Component {
@@ -29,13 +29,7 @@ class Body extends React.Component {
         if (this.state.bodyState === "tarefas"){
             return (
                     <div>
-                        <div className="bodyStyleBack col-md-8">
-                            ijljkçjl
-                        </div>
-
-                        <div className="col-md-12"></div>
-
-
+                        <JobManager/>
                         <Footer/>
                     </div>
             )

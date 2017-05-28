@@ -66,17 +66,22 @@ class JobManager extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="row">
+                <div className="col-md-12">
                 <JobsList jobs={this.state.jobs}
                           onJobUpdate={this.updateJobs}
                           openForms = {this.openForms}
                           closeForms={this.closeForms}/>
+                </div>
+
+                <div className="col-md-offset-3 col-md-6">
                 <FormsAddJob onJobUpdate={this.updateJobs}
                              jobs={this.state.jobs}
                              formsVisible={this.state.forms}
                              closeForms={this.closeForms}
                              properties={this.state.properties}
                              mode="edit"/>
+                </div>
             </div>
         );
     }

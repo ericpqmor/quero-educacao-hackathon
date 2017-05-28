@@ -111,10 +111,11 @@ class FormsAddJob extends React.Component {
             visibility: this.props.formsVisible ? 'visible' : 'hidden'
         };
         return (
-            <form onSubmit={this.handleSubmit} style={style}>
+            <form className="bodyStyleBack" conSubmit={this.handleSubmit} style={style}>
                 <label>
                     Nome: &nbsp;
                     <input
+                        className="formClass"
                         name="name"
                         type="text"
                         value={this.state.name}
