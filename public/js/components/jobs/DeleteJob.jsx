@@ -21,6 +21,24 @@ class DeleteJob extends React.Component {
             },
             success: function (msg) {
 
+                $.ajax({
+                    url: '/history/',
+                    dataType: 'json',
+                    type: 'post',
+                    data: job,
+                    success: function (data) {
+                        console.log(data);
+                        // me.props.closeForms();
+                        // me.props.onJobUpdate();
+                    },
+                    error: function (err) {
+                        console.log(err);
+                        console.log("Couldn't edit the job")
+                    }
+                });
+
+
+
                 //console.log(msg);
             },
             error: function (err) {

@@ -27,7 +27,7 @@ class HistoryManager extends React.Component {
     }
 
     requestHistory() {
-        const historyUrl = '/jobs/history';
+        const historyUrl = '/history';
         const me = this;
         $.ajax({
             url: historyUrl,
