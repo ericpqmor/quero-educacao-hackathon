@@ -105,28 +105,29 @@ router.put("/:id", function (req, res) {
 //DESTROY JOB ROUTE
 router.delete("/:id", function (req, res) {
 
-    Job.findById(req.params.id).exec(function (err, foundJob) {
-        if(err) {
+    foundJob = Job.findById(req.params.id).exec(function (err, foundJob) {
+        if (err) {
             console.log(err);
         } else {
-            History.create(foundJob, function (err, newlyArchived) {
+            console.log("found the job to be destroyed");
+        }
+    });
+
+    History.create(foundJob, function (err, newlyArchived) {
                 if(err) {
                     res.send(err);
                     console.log(err);
                 } else {
                     Job.findByIdAndRemove(req.params.id, function (err) {
                         if(err) {
-                            res.send(err);
                         } else {
-                            res.send('Done');
+                            console.log("Done");
                         }
                     });
-                    res.send(newlyArchived);
+                  //  res.send(newlyArchived);
                 }
             });
-            res.json({job: foundJob});
-        }
-    });
+            res.send({job: foundJob});
 });
 
 //DESTROY HISTORY ROUTE

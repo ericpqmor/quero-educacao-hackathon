@@ -11,3 +11,5 @@ const middleware = require("../middleware");
 
 
 //REMOVE PERSON FROM JOB
+
+module.exports = router;
