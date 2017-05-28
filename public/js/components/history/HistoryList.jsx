@@ -31,11 +31,6 @@ class HistoryList extends React.Component {
         return (
             <div>
                 <table className="table table-striped table-bordered table-hover taskTable">
-                    <thead>
-                    <tr>
-                        <th>Tarefas</th>
-                    </tr>
-                    </thead>
                     <tbody>
                         {tableData}
                     </tbody>

@@ -30,11 +30,6 @@ class JobsList extends React.Component {
         return (
             <div className="col-md-offset-3 col-md-6 bodyStyleBack bodySize" id="table">
                 <table className="table table-striped table-bordered table-hover taskTable">
-                    <thead>
-                    <tr>
-                        <th>Tarefas</th>
-                    </tr>
-                    </thead>
                     <tbody>
                         {tableData}
                     </tbody>
