@@ -1,9 +1,17 @@
-.btn.selected{
+@import "Styles";
+
+.btn.footerbutton{
   border-radius: 0px;
 }
 
 .force-to-bottom {
-  position:absolute;
-  bottom: 5%;
-  width: 100%;
+  bottom: 0%;
+}
+
+.btn.tarefas{
+  background-color: $BodyFooterColor1;
+}
+
+.btn.historico{
+  background-color: $BodyFooterColor2;
 }
