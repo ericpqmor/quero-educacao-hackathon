@@ -4,7 +4,7 @@ import JobsList from './jobs/JobsList.jsx';
 import Header from './Header.jsx';
 
 class Footer extends React.Component {
-    constructor(props) {
+    constructor() {
         super();
         this.handleClick = this.handleClick.bind(this);
         this.state = {
