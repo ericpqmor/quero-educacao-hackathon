@@ -4,7 +4,7 @@
 
 const express = require("express");
 const router = express.Router();
-const History = require("../models/job");
+const History = require("../models/history");
 const middleware = require("../middleware");
 //Going to require database
 
