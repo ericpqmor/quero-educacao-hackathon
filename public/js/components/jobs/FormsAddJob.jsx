@@ -1,5 +1,7 @@
 import React from '../../../node_modules/react/';
 
+import requestUsers from '../../requests/requestUsers.jsx'
+
 class FormsAddJob extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +11,8 @@ class FormsAddJob extends React.Component {
             image: this.props.properties.image,
             category: this.props.properties.category,
             money: this.props.properties.money,
-            assigned: '0'
+            assigned: 0,
+            people: []
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -17,7 +20,6 @@ class FormsAddJob extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.requestEditJob = this.requestEditJob.bind(this);
         this.requestNewJob = this.requestNewJob.bind(this);
-        this.getPeople = this.getPeople(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -27,7 +29,8 @@ class FormsAddJob extends React.Component {
             image: nextProps.properties.image,
             category: nextProps.properties.category,
             money: nextProps.properties.money,
-            assigned: nextProps.properties.assigned
+            assigned: nextProps.properties.assigned,
+            people: nextProps.properties.people
         });
     }
 
@@ -47,6 +50,10 @@ class FormsAddJob extends React.Component {
 
     handleOptionChange(event) {
         this.setState({category: event.target.value});
+    }
+
+    handleAssignedChange(event) {
+        this.setState({assigned: event.target.value});
     }
 
     requestEditJob(object, properties) {
@@ -87,7 +94,8 @@ class FormsAddJob extends React.Component {
                     image: '',
                     money: 0,
                     category: 'pontual',
-                    assigned: 0
+                    assigned: 0,
+                    people: []
                 });
                 me.props.closeForms();
                 me.props.onJobUpdate();
@@ -110,44 +118,26 @@ class FormsAddJob extends React.Component {
         }
     }
 
-    getPeople() {
-        const jobsUrl = '/users/';
-        const me = this;
-        $.ajax({
-            url: jobsUrl,
-            dataType: 'json',
-            type: 'get',
-            success: function (data) {
-                let finalData = [];
-                for(let i in data) {
-                    if(data.hasOwnProperty(i)) {
-                        finalData.push(
-                            <option value={data[i].username} key={data[i].username + Math.random().toString()}>
-                                {data[i].username}
-                            </option>
-                        );
-                    }
-                }
-                me.setState({
-                    people: finalData,
-                    assigned: finalData.size
-                });
-                me.props.closeForms();
-                me.props.onJobUpdate();
-            },
-            error: function (err) {
-                console.log(err);
-                console.log("Couldn't load users")
-            }
-        });
+    getAllPeople() {
+        const data = requestUsers();
+        let finalData = [];
 
+        for (let i in data) {
+            if (data.hasOwnProperty(i)) {
+                finalData.push(
+                    <option value={data[i].username} key={data[i].username}>{data[i].username}</option>
+                );
+            }
+
+        }
+        return finalData;
     }
 
     render() {
+        const finalData = this.getAllPeople();
         const style = {
             visibility: this.props.formsVisible ? 'visible' : 'hidden'
         };
-        console.log(this.state);
         return (
             <form className="bodyStyleBack" onSubmit={this.handleSubmit} style={style}>
                 <label>
@@ -199,8 +189,42 @@ class FormsAddJob extends React.Component {
                 <label>
                     Número de Pessoas: &nbsp;
                     <select value={this.state.assigned} onChange={this.handleOptionChange}>
-                        {this.state.assigned}
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                     </select>
+                </label>
+                <br />
+                <label>
+                    Pessoas: &nbsp;
+                    <label>
+                        Aloysio: &nbsp;
+                        <input
+                            name="Aloysio"
+                            type="checkbox" />
+                    </label>
+                    <br />
+                    <label>
+                        Carlos
+                        <input
+                            name="Precioso"
+                            type="checkbox" />
+                    </label>
+                    <br />
+                    <label>
+                        Eric
+                        <input
+                            name="Shark"
+                            type="checkbox" />
+                    </label>
+                    <br />
+                    <label>
+                        Igor
+                        <input
+                            name="Dono"
+                            type="checkbox" />
+                    </label>
                 </label>
                 <br />
                 <input type="submit" value="Submit" />
