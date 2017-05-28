@@ -62,14 +62,16 @@ class Footer extends React.Component {
                     <div className="row thisFooter" >
                         <div className="col-lg-3 col-xs-0 ">
                         </div>
-                        <div className="col-lg-3 col-xs-6" id="footerLeft">
+                        <div className="col-lg-3 col-xs-6" id="footerLeft"
+                             onClick={()=>this.props.changeMainPage('job')}>
                             <div className="footerLeft">
                                  <div className="FooterText">
                                     Tarefas
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-xs-6" id="footerRight">
+                        <div className="col-lg-3 col-xs-6" id="footerRight"
+                             onClick={()=>this.props.changeMainPage('history')}>
                             <div className="footerRight">
                                 <div className="FooterText">
                                     Histórico
