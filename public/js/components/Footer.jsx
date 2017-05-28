@@ -23,6 +23,7 @@ class Footer extends React.Component {
         if (this.state.tarefasActive === true){
             return (
 
+
                 <div className="thisFooter" id="Tobottom">
                     <div className="container">
                         <div className="row thisFooter" >
@@ -57,6 +58,7 @@ class Footer extends React.Component {
         }
         else {
             return (
+<<<<<<< HEAD
 
             <div className="thisFooter" id="Tobottom">
                 <div className="container">
@@ -80,6 +82,11 @@ class Footer extends React.Component {
                         <div className="col-lg-3 col-xs-0">
                         </div>
                     </div>
+=======
+                <div className="force-to-bottom">
+                    <button type="button" className="btn col-md-offset-3 col-md-3 col-sm-6 footerbutton tarefas">Tarefas</button>
+                    <button type="button" className="btn col-md-3 col-sm-6 footerbutton historico" onClick={this.handleClick}>Historico</button>
+>>>>>>> Layout basico das listas
                 </div>
             </div>
 
