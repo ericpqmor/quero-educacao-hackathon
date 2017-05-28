@@ -21,7 +21,8 @@ const jobSchema = new mongoose.Schema({
             username: String,
             email: String
         }
-    ]
+    ],
+    turn: Number
 });
 
 module.exports = mongoose.model("Job", jobSchema);

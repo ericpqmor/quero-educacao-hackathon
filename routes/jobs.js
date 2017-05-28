@@ -46,6 +46,7 @@ router.post("/", function (req, res) {
     const description = req.body.description;
     const category = req.body.category;
     const money = req.body.money;
+    const turn = 0;
 
     const newJob = {name: name, image: image, description: description, category: category, money: req.body.money};
 
@@ -105,7 +106,7 @@ router.put("/:id", function (req, res) {
 //DESTROY JOB ROUTE
 router.delete("/:id", function (req, res) {
 
-    foundJob = Job.findById(req.params.id).exec(function (err, foundJob) {
+    const foundJob = Job.findById(req.params.id).exec(function (err, foundJob) {
         if (err) {
             console.log(err);
         } else {
@@ -140,6 +141,15 @@ router.delete("/history/:id", function (req, res) {
             res.send('Done');
         }
     });
+});
+
+//SEND EMAIL NOTIFICATION
+router.post("/:id/notify", function (req, res) {
+   const foundJob = Job.findById(req.params.id);
+
+   const foundUser = foundJob.assigned[foundJob.turn];
+
+
 });
 
 module.exports = router;

@@ -17,6 +17,8 @@ class Job extends React.Component {
     }
 
     render() {
+      //  const myId = this.props.properties._id;
+      //  const str = "/jobs" + myId + "/assigned";
         return (
             <tr key={this.props.properties.name +this.props.properties.description + Math.random().toString()}
                 className='btn'>
@@ -25,6 +27,10 @@ class Job extends React.Component {
                     <DeleteJob onJobUpdate={this.props.onJobUpdate}
                                 properties={this.props.properties}/>
                 </td>
+
+                <form action={"/jobs/" + this.props.properties._id + "/assigned/send"} method="post">
+                    <button name="foo" value="upvote">Notification</button>
+                </form>
             </tr>
         )
     }

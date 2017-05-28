@@ -19,6 +19,7 @@ const seedDB = require("./seeds");
 const Job = require("./models/job");
 const User = require("./models/user");
 const History = require("./models/history");
+const nodemailer = require("nodemailer");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
