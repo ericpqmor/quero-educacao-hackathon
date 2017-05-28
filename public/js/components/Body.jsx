@@ -28,16 +28,16 @@ class Body extends React.Component {
     render() {
         if (this.state.bodyState === "tarefas"){
             return (
-
-                    <div className="col-md-offset-2">
+                    <div>
                         <div className="bodyStyleBack col-md-8">
                             ijljkçjl
                         </div>
 
                         <div className="col-md-12"></div>
+
+
                         <Footer/>
                     </div>
-
             )
         }
         else {

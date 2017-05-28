@@ -29,9 +29,9 @@ class Header extends React.Component {
                         </div>
                         <div className="col-lg-1 col-xs-3">
                             <div className="HeaderMiddle">
-                            <div className="HeaderText">
+                                <div className="HeaderText">
                                 <span className="glyphicon glyphicon-adjust" ></span>
-                            </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-xs-0">

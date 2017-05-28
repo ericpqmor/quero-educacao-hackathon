@@ -26,6 +26,8 @@
 }
 .HeaderText:hover{
   background-color: $HeaderBlue2;
+  cursor: pointer;
+  cursor: hand;
 }
 .HeaderMiddle{
   margin: 0px;
@@ -34,4 +36,6 @@
 }
 .HeaderMiddle:hover{
   background-color: $HeaderBlue2;
+  cursor: pointer;
+  cursor: hand;
 }
