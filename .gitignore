@@ -17,3 +17,5 @@ npm-debug.log*
 
 # Sass cache
 public/.sass-cache/
+
+package-lock.json
