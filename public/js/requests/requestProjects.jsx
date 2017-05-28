@@ -6,16 +6,16 @@ function getProjects() {
         name: "Família"
     });
     data.push({
-       name: "Churrasco com os amigos"
+       name: "Churrasco Amigos"
     });
     data.push({
-        name: "Relatório da Faculdade"
+        name: "Relatório Faculdade"
     });
     data.push({
         name: "Alojamento"
     });
     data.push({
-        name: "Festa surpresa do João"
+        name: "Festa João"
     });
 
     return data;
