@@ -53,7 +53,6 @@ router.post("/send", function(req, res){
                text: 'Remember: ' + job.description
            };
 
-           console.log("I HAVE REACHED HERE");
 
            transporter.sendMail(mailOptions, function(error, info){
                if (error) {
@@ -62,7 +61,12 @@ router.post("/send", function(req, res){
                    console.log('Email sent: ' + info.response);
                }
            });
-            res.redirect("/");
+
+           const size = job.assigned.size;
+           console.log("Fuck");
+           job.turn = (job.turn + 1)%size;
+
+           res.redirect("/");
        }
     });
     //console.log("found job: " + foundJob.name + " " + foundJob.description);

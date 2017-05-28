@@ -8,6 +8,11 @@ const History = require("./models/history");
 
 const users = [
     {
+        username: "shark",
+        email: "carlosmatheusbs@gmail.com",
+        password: "ehcara"
+    },
+    {
         username: "aloysio",
         email: "aloysiogl@gmail.com",
         password: "81160709"
@@ -16,11 +21,6 @@ const users = [
         username: "dono",
         email: "igorribeiro@gmail.com",
         password: "sugar"
-    },
-    {
-        username: "shark",
-        email: "carlos@gmail.com",
-        password: "ehcara"
     }
 ]
 
