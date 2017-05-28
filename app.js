@@ -28,7 +28,7 @@ const jobRoutes = require("./routes/jobs"),
       assignedRoutes = require("./routes/assigned"),
       userRoutes = require("./routes/users");
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://ericpqmor:81160709@ds155811.mlab.com:55811/sharet");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set('views', path.join(__dirname, 'views'));
@@ -73,8 +73,8 @@ app.use("/history", historyRoutes);
 app.use("/jobs/:id/assigned", assignedRoutes);
 app.use("/users", userRoutes);
 
-app.listen(3000, function (req, res) {
-    console.log("We are going to win this hackathon");
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Starting Sharet Server");
 });
 
 
