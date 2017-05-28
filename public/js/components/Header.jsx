@@ -30,7 +30,7 @@ class Header extends React.Component {
                         <div className="col-lg-1 col-xs-3">
                             <div className="HeaderMiddle">
                             <div className="HeaderText">
-                                <span className="glyphicon glyphicon-adjust" ></span>
+                                <i className="fa fa-user-circle-o" ></i>
                             </div>
                             </div>
                         </div>
