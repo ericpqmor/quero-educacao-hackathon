@@ -22,4 +22,4 @@ const historySchema = new mongoose.Schema({
      }*/
 });
 
-module.exports = mongoose.model("History", jobSchema);
+module.exports = mongoose.model("History", historySchema);

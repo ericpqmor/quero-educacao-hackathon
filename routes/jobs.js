@@ -11,12 +11,27 @@ const middleware = require("../middleware");
 
 
 
-//INDEX - Show all jobs
+//INDEX
+
+// Show all jobs
 router.get("/", function (req, res) {
    //Get all jobs from DB
     Job.find({}, function(err, allJobs) {
         if(err) {
-            req.flash("error", err.message);
+            console.log(err);
+            //req.flash("error", err.message);
+        } else {
+            res.json({jobs:allJobs});
+        }
+    });
+});
+
+// Show all the history
+router.get("/history", function (req, res) {
+    //Get all jobs from history DB
+    History.find({}, function (err, allJobs) {
+        if(err) {
+            console.log(err);
         } else {
             res.json({jobs:allJobs});
         }
@@ -112,6 +127,17 @@ router.delete("/:id", function (req, res) {
           res.send('Done');
       }
    });
+});
+
+//DESTROY HISTORY ROUTE
+router.delete("/history/:id", function (req, res) {
+    History.findByIdAndRemove(req.params.id, function (err) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.send('Done');
+        }
+    });
 });
 
 module.exports = router;
