@@ -5,7 +5,6 @@
 const express = require("express");
 const router = express.Router();
 const Job = require("../models/job");
-const History = require("../models/job");
 const middleware = require("../middleware");
 //Going to require database
 
@@ -17,22 +16,6 @@ router.get("/", function (req, res) {
             console.log(err);
             //req.flash("error", err.message);
         } else {
-            res.json({jobs:allJobs});
-        }
-    });
-});
-
-// Show all the history
-router.get("/history", function (req, res) {
-    console.log('Get on history');
-    // res.send({});
-    //Get all jobs from history DB
-    History.find({}, function (err, allJobs) {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log("aaaaaaaaaaaaaaaaaaaaaa");
-            console.log(allJobs);
             res.json({jobs:allJobs});
         }
     });
@@ -105,42 +88,14 @@ router.put("/:id", function (req, res) {
 
 //DESTROY JOB ROUTE
 router.delete("/:id", function (req, res) {
-
-    Job.findById(req.params.id).exec(function (err, foundJob) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("found the job to be destroyed");
-
-            Job.findByIdAndRemove(req.params.id, function (err, job) {
-                if(err) {
-
-                } else {
-                    console.log("Done");
-                    History.create(foundJob, function (err, job) {});
-                    res.send({job: foundJob});
-                }
-            });
-        }
-    });
-});
-
-//DESTROY HISTORY ROUTE
-router.delete("/history/:id", function (req, res) {
-    History.findByIdAndRemove(req.params.id, function (err) {
+    Job.findByIdAndRemove(req.params.id, function (err, foundJob) {
         if(err) {
-            res.send(err);
+
         } else {
-            res.send('Done');
+            console.log("Done");
+            res.send({job: foundJob});
         }
     });
-});
-
-//SEND EMAIL NOTIFICATION
-router.post("/:id/notify", function (req, res) {
-   const foundJob = Job.findById(req.params.id);
-
-   const foundUser = foundJob.assigned[foundJob.turn];
 });
 
 module.exports = router;

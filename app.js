@@ -23,6 +23,7 @@ const nodemailer = require("nodemailer");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
+      historyRoutes = require("./routes/history"),
       indexRoutes = require("./routes/index"),
       assignedRoutes = require("./routes/assigned"),
       userRoutes = require("./routes/users");
@@ -68,6 +69,7 @@ app.use('/dashboard', express.static('./public'));
 //Loading all the routes
 app.use("/", indexRoutes);
 app.use("/jobs", jobRoutes);
+app.use("/history", historyRoutes);
 app.use("/jobs/:id/assigned", assignedRoutes);
 app.use("/users", userRoutes);
 
