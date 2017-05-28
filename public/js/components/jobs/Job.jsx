@@ -18,7 +18,8 @@ class JobsList extends React.Component {
 
     render() {
         return (
-            <tr key={this.props.properties.name} className='btn'>
+            <tr key={this.props.properties.name +this.props.properties.description + Math.random().toString()}
+                className='btn'>
                 <td onClick={this.handleEditClick}>
                     <span>{this.props.properties.name}</span>
                     <DeleteJob onJobUpdate={this.props.onJobUpdate}

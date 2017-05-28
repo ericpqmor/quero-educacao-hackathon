@@ -71,9 +71,11 @@ class JobManager extends React.Component {
                           openForms = {this.openForms}
                           closeForms={this.closeForms}/>
                 <FormsAddJob onJobUpdate={this.updateJobs}
+                             jobs={this.state.jobs}
                              formsVisible={this.state.forms}
                              closeForms={this.closeForms}
-                             properties={this.state.properties}/>
+                             properties={this.state.properties}
+                             mode="edit"/>
             </div>
         );
     }

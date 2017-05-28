@@ -14,7 +14,7 @@ class JobsList extends React.Component {
             for (let i in v) {
                 if (v.hasOwnProperty(i)) {
                     data.push(
-                        <Job properties={v[i]} key={v[i].name}
+                        <Job properties={v[i]} key={v[i].name + v[i].description + Math.random().toString()}
                              onJobUpdate={this.props.onJobUpdate}
                              openForms={this.props.openForms}/>
                     );
