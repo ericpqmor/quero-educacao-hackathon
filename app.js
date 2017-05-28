@@ -73,7 +73,7 @@ app.use("/history", historyRoutes);
 app.use("/jobs/:id/assigned", assignedRoutes);
 app.use("/users", userRoutes);
 
-app.listen(3000, function (req, res) {
+app.listen(process.env.PORT, function (req, res) {
     console.log("We are going to win this hackathon");
 });
 
