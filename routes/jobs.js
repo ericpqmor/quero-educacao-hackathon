@@ -9,9 +9,6 @@ const History = require("../models/history");
 const middleware = require("../middleware");
 //Going to require database
 
-//INDEX
-
-// Show all jobs
 //INDEX - Show all jobs
 router.get("/", function (req, res) {
    //Get all jobs from DB
@@ -113,29 +110,17 @@ router.delete("/:id", function (req, res) {
         } else {
             console.log("found the job to be destroyed");
 
-
-            History.create(foundJob, function (err, newlyArchived) {
+            Job.findByIdAndRemove(req.params.id, function (err, job) {
                 if(err) {
-                    res.send(err);
-                    console.log(err);
-                } else {
-                    Job.findByIdAndRemove(req.params.id, function (err) {
-                        if(err) {
 
-                        } else {
-                            console.log("Done");
-                        }
-                    });
-                    //  res.send(newlyArchived);
+                } else {
+                    console.log("Done");
+                    History.create(foundJob, function (err, job) {});
+                    res.send({job: foundJob});
                 }
             });
-            res.send({job: foundJob});
-
-
         }
     });
-
-
 });
 
 //DESTROY HISTORY ROUTE
@@ -154,8 +139,6 @@ router.post("/:id/notify", function (req, res) {
    const foundJob = Job.findById(req.params.id);
 
    const foundUser = foundJob.assigned[foundJob.turn];
-
-
 });
 
 module.exports = router;
