@@ -7,7 +7,7 @@ class FormsAddJob extends React.Component {
             name: '',
             description: '',
             image: '',
-            task: 'pontual'
+            category: 'pontual'
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,7 +26,7 @@ class FormsAddJob extends React.Component {
     }
 
     handleOptionChange(event) {
-        this.setState({task: event.target.value});
+        this.setState({category: event.target.value});
     }
 
     handleSubmit(event) {
@@ -37,37 +37,39 @@ class FormsAddJob extends React.Component {
             url: jobsUrl,
             dataType: 'json',
             type: 'post',
+            data: this.state,
             success: function (data) {
-                if(me.state.loadingJobs === true) {
-                    me.setState({
-                        loadingJobs: false,
-                        jobs: data
-                    });
-                }
-
-                return data;
+                console.log(data);
+                me.setState({
+                    name: '',
+                    description: '',
+                    image: '',
+                    category: 'pontual'
+                });
             },
             error: function (err) {
-                console.log("Couldn't load jobs from server")
+                console.log(err);
+                console.log("Couldn't add new job")
             }
         });
     }
 
     render() {
+        console.log(this.state);
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Nome:
+                    Nome: &nbsp;
                     <input
                         name="name"
                         type="text"
-                        checked={this.state.name}
+                        value={this.state.name}
                         onChange={this.handleInputChange}
                         required/>
                 </label>
                 <br />
                 <label>
-                    Descrição
+                    Descrição: &nbsp;
                     <input
                         name="description"
                         type="text"
@@ -76,7 +78,7 @@ class FormsAddJob extends React.Component {
                 </label>
                 <br />
                 <label>
-                    Url da imagem
+                    Url da imagem: &nbsp;
                     <input
                         name="image"
                         type="text"
@@ -85,8 +87,8 @@ class FormsAddJob extends React.Component {
                 </label>
                 <br />
                 <label>
-                    Tipo de tarefa
-                    <select value={this.state.value} onChange={this.handleOptionChange}>
+                    Tipo de tarefa: &nbsp;
+                    <select value={this.state.category} onChange={this.handleOptionChange}>
                         <option value="pontual">Pontual</option>
                         <option value="cyclic">Cíclica</option>
                     </select>

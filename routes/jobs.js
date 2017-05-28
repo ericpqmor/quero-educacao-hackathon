@@ -26,19 +26,20 @@ router.post("/", function (req, res) {
    //get data from forms and add to jobs array
     const name = req.body.name;
     const image = req.body.image;
-    const desc = req.body.description;
+    const description = req.body.description;
 
     //FIXME think better about how to get enum from form
     const category = req.body.category;
 
-    const newJob = {name: name, image: image, description: desc, category: category}
+    const newJob = {name: name, image: image, description: description, category: category};
 
     //Create a job and save it to DB
     Job.create(newJob, function (err, newlyCreated) {
        if(err) {
+           res.send(err);
            console.log(err);
        } else {
-           console.log(newlyCreated);
+           res.send(newlyCreated);
        }
     });
 });

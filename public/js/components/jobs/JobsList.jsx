@@ -38,6 +38,7 @@ class JobsList extends React.Component {
                 return data;
             },
             error: function (err) {
+                console.log(err);
                 console.log("Couldn't load jobs from server")
             }
         });
