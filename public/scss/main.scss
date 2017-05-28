@@ -10,6 +10,7 @@ body {
   background-color: $BodyBackgroundColor;
 }
 
+@import 'table.scss';
 @import 'footer.scss';
 @import 'header.scss';
 @import 'task.scss';

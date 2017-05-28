@@ -21,8 +21,9 @@ const users = [
         username: "dono",
         email: "igorribeiro@gmail.com",
         password: "sugar"
+
     }
-]
+];
 
 const data = [
     {
