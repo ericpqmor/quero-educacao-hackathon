@@ -1,7 +1,9 @@
 function getProjects() {
     let data = [];
 
-
+    data.push({
+       name: 'MandaNode'
+    });
     data.push({
         name: "Família"
     });
@@ -17,6 +19,7 @@ function getProjects() {
     data.push({
         name: "Festa João"
     });
+
 
     return data;
 }
