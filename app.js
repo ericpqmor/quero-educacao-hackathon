@@ -17,6 +17,7 @@ const winston = require('winston');
 const routes = require('./routes');
 const seedDB = require("./seeds");
 const Job = require("./models/job");
+const User = require("./models/user");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
@@ -33,6 +34,25 @@ app.use(flash());
 
 //seed the db
 seedDB();
+
+// PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret: "sharet",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 //BodyParser Middleware
 app.use(bodyParser.json());
