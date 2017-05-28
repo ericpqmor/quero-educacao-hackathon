@@ -1,6 +1,6 @@
 import React from '../../node_modules/react';
 
-import JobsList from './jobs/JobsList.jsx';
+import JobManager from './JobManager.jsx';
 import Header from './Header.jsx';
 
 class App extends React.Component {
@@ -12,7 +12,7 @@ class App extends React.Component {
         return (
             <div>
                 <Header/>
-                <JobsList/>
+                <JobManager/>
             </div>
         )
     }

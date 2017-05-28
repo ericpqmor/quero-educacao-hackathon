@@ -81,7 +81,6 @@ class JobsList extends React.Component {
                             {tableData}
                         </tbody>
                     </table>
-                    <FormsAddJob/>
                 </div>
             )
         }

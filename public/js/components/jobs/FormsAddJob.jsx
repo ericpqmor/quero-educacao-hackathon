@@ -1,4 +1,4 @@
-import React from '../../../node_modules/react/react';
+import React from '../../../node_modules/react/';
 
 class FormsAddJob extends React.Component {
     constructor(props) {
@@ -39,7 +39,6 @@ class FormsAddJob extends React.Component {
             type: 'post',
             data: this.state,
             success: function (data) {
-                console.log(data);
                 me.setState({
                     name: '',
                     description: '',
@@ -55,7 +54,6 @@ class FormsAddJob extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
