@@ -20,11 +20,11 @@ router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
-            req.flash("error", err.message);
+            console.log(err);
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to Sharet " + user.username);
+         //   req.flash("success", "Welcome to Sharet " + user.username);
             res.redirect("/");
         });
     });
@@ -38,7 +38,7 @@ router.get("/login", function (req, res) {
 //logout route
 router.get("/logout", function(req, res){
    req.logout();
-   req.flash("sucess", "Logged you out!");
+   //req.flash("sucess", "Logged you out!");
    res.redirect("/");
 });
 
