@@ -15,6 +15,8 @@ class App extends React.Component {
             <div>
                 <Header/>
                 <Body/>
+                <JobManager/>
+                <Footer/>
             </div>
         )
     }
