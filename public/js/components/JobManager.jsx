@@ -10,7 +10,12 @@ class JobManager extends React.Component {
         this.state = {
             jobs: {},
             forms: false,
-            properties: {}
+            properties: {
+                name: '',
+                description: '',
+                image: '',
+                category: 'pontual'
+            }
         };
 
         this.updateJobs = this.updateJobs.bind(this);
