@@ -7,8 +7,8 @@ class Footer extends React.Component {
     constructor() {
         super();
         this.handleClick = this.handleClick.bind(this);
-        this.state{
-            tarefasActive = true
+        this.state = {
+            tarefasActive: true
         }
     }
 

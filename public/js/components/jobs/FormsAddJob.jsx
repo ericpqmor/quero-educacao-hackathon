@@ -45,6 +45,7 @@ class FormsAddJob extends React.Component {
                     image: '',
                     category: 'pontual'
                 });
+                me.props.onsubmit();
             },
             error: function (err) {
                 console.log(err);
