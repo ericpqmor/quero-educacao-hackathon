@@ -3,6 +3,7 @@
  */
 const mongoose = require("mongoose");
 const Job = require("./models/job");
+const User = require("./models/user");
 
 const data = [
     {
@@ -25,6 +26,24 @@ const data = [
     }
 ];
 
+const users = [
+    {
+        username: "ericpqmor",
+        email: "ericpqmor@gmail.com",
+        password: "birl"
+    },
+    {
+        username: "dono",
+        email: "igorribeiro@gmail.com",
+        password: "sugar"
+    },
+    {
+        username: "shark",
+        email: "carlos@gmail.com",
+        password: "ehcara"
+    }
+]
+
 function seedDB() {
     //Clean the job database
     Job.remove({}, function (err) {
@@ -40,6 +59,22 @@ function seedDB() {
 
               }
            })
+        });
+    });
+
+    User.remove({}, function (err) {
+        if (err) {
+            console.log(err);
+        }
+        //add a few jobs
+        data.forEach(function (seed) {
+            User.create(seed, function (err, user) {
+                if(err) {
+                    console.log(err);
+                } else {
+
+                }
+            })
         });
     });
 }
