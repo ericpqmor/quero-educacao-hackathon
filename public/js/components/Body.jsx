@@ -3,8 +3,8 @@ import React from '../../node_modules/react';
 import Footer from './Footer.jsx';
 
 class Body extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.changeBodyState = this.changeBodyState.bind(this);
         this.state = {
             bodyState: "tarefas"
@@ -29,12 +29,12 @@ class Body extends React.Component {
         if (this.state.bodyState === "tarefas"){
             return (
 
-
                     <div className="col-md-offset-2">
                         <div className="bodyStyleBack col-md-8">
-                            ijljkç
+                            ijljkçjl
                         </div>
-                        <div className="col-md-8"></div>
+
+                        <div className="col-md-12"></div>
                         <Footer/>
                     </div>
 

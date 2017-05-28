@@ -4,8 +4,8 @@ import JobsList from './jobs/JobsList.jsx';
 import Header from './Header.jsx';
 
 class Footer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
             tarefasActive: this.props.bodyState
