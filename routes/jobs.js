@@ -5,6 +5,7 @@
 const express = require("express");
 const router = express.Router();
 const Job = require("../models/job");
+const History = require("../models/history");
 const middleware = require("../middleware");
 //Going to require database
 
@@ -88,6 +89,22 @@ router.put("/:id", function (req, res) {
 
 //DESTROY JOB ROUTE
 router.delete("/:id", function (req, res) {
+
+    //ADD JOB TO HISTORY
+    const archivedJob = Job.findById(req.params.id, function (err){
+    });
+
+    router.post("/history", function(archivedJob) {
+        History.create(archivedJob, function (err, newlyArchived) {
+            if(err) {
+                res.send(err);
+                console.log(err);
+            } else {
+                res.send(newlyArchived);
+            }
+        });
+    });
+
    Job.findByIdAndRemove(req.params.id, function (err) {
       if(err) {
           res.send(err);

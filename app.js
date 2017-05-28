@@ -18,6 +18,7 @@ const routes = require('./routes');
 const seedDB = require("./seeds");
 const Job = require("./models/job");
 const User = require("./models/user");
+const History = require("./models/history");
 
 //requiring routes
 const jobRoutes = require("./routes/jobs"),
